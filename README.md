@@ -1,2 +1,2 @@
-# cs-257
-Repository containing the CS 257 team's work
+# Star Wars Data
+Repository containing our team's work for CS 257 (Software Design) at Carleton
