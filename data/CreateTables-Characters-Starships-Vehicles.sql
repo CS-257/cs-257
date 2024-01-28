@@ -26,8 +26,7 @@ CREATE TABLE starships (
   consumables text,
   hyperdrive_rating real, 
   MGLT real,
-  starship_class text,
-  
+  starship_class text
 );
 
 DROP TABLE IF EXISTS vehicles;
