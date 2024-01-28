@@ -2,7 +2,7 @@ Executor,Executor-class star dreadnought,"Kuat Drive Yards, Fondor Shipyards",11
 Sentinel-class landing craft,Sentinel-class landing craft,"Sienar Fleet Systems, Cyngus Spaceworks",240000,38,1000,5,75,180000,1 month,1,70,landing craft
 Death Star,DS-1 Orbital Battle Station,"Imperial Department of Military Research, Sienar Fleet Systems",1E+12,120000,,342953,843342,1E+12,3 years,4,10,Deep Space Mobile Battlestation
 Millennium Falcon,YT-1300 light freighter,Corellian Engineering Corporation,100000,34.37,1050,4,6,100000,2 months,0.5,75,Light freighter
-Y-wing,BTL Y-wing,Koensayr Manufacturing,134999,14,1000km,2,0,110,1 week,1,80,assault starfighter
+Y-wing,BTL Y-wing,Koensayr Manufacturing,134999,14,1000,2,0,110,1 week,1,80,assault starfighter
 X-wing,T-65 X-wing,Incom Corporation,149999,12.5,1050,1,0,110,1 week,1,100,Starfighter
 TIE Advanced x1,Twin Ion Engine Advanced x1,Sienar Fleet Systems,,9.2,1200,1,0,150,5 days,1,105,Starfighter
 Slave 1,Firespray-31-class patrol and attack,Kuat Systems Engineering,,21.5,1000,1,6,70000,1 month,3,70,Patrol craft
