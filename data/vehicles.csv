@@ -3,7 +3,7 @@ T-16 skyhopper,T-16 skyhopper,Incom Corporation,14500,10.4,1200,1,1,50,0,repulso
 X-34 landspeeder,X-34 landspeeder,SoroSuub Corporation,10550,3.4,250,1,1,5,,repulsorcraft
 TIE/LN starfighter,Twin Ion Engine/Ln Starfighter,Sienar Fleet Systems,,6.4,1200,1,0,65,2 days,starfighter
 Snowspeeder,t-47 airspeeder,Incom corporation,,4.5,650,2,0,10,none,airspeeder
-TIE bomber,TIE/sa bomber,Sienar Fleet Systems,,7.8,850,1,0,none,2 days,space/planetary bomber
+TIE bomber,TIE/sa bomber,Sienar Fleet Systems,,7.8,850,1,0,0,2 days,space/planetary bomber
 AT-AT,All Terrain Armored Transport,"Kuat Drive Yards, Imperial Department of Military Research",,20,60,5,40,1000,,assault walker
 AT-ST,All Terrain Scout Transport,"Kuat Drive Yards, Imperial Department of Military Research",,2,90,2,0,200,none,walker
 Storm IV Twin-Pod cloud car,Storm IV Twin-Pod,Bespin Motors,75000,7,1500,2,0,10,1 day,repulsorcraft
@@ -14,7 +14,7 @@ Imperial Speeder Bike,74-Z speeder bike,Aratech Repulsor Company,8000,3,360,1,1,
 Vulture Droid,Vulture-class droid starfighter,"Haor Chall Engineering, Baktoid Armor Workshop",,3.5,1200,,0,0,none,starfighter
 Multi-Troop Transport,Multi-Troop Transport,Baktoid Armor Workshop,138000,31,35,4,112,12000,,repulsorcraft
 Armored Assault Tank,Armoured Assault Tank,Baktoid Armor Workshop,,9.75,55,4,6,,,repulsorcraft
-Single Trooper Aerial Platform,Single Trooper Aerial Platform,Baktoid Armor Workshop,2500,2,400,1,0,none,none,repulsorcraft
+Single Trooper Aerial Platform,Single Trooper Aerial Platform,Baktoid Armor Workshop,2500,2,400,1,0,0,none,repulsorcraft
 C-9979 landing craft,C-9979 landing craft,Haor Chall Engineering,200000,210,587,140,284,1800000,1 day,landing craft
 Tribubble bongo,Tribubble bongo,Otoh Gunga Bongameken Cooperative,,15,85,1,2,1600,,submarine
 Sith speeder,FC-20 speeder bike,Razalon,4000,1.5,180,1,0,2,,speeder
@@ -29,7 +29,7 @@ Droid tri-fighter,tri-fighter,"Colla Designs, Phlac-Arphocc Automata Industries"
 Oevvaor jet catamaran,Oevvaor jet catamaran,Appazanna Engineering Works,12125,15.1,420,2,2,50,3 days,airspeeder
 Raddaugh Gnasp fluttercraft,Raddaugh Gnasp fluttercraft,Appazanna Engineering Works,14750,7,310,2,0,20,none,air speeder
 Clone turbo tank,HAVw A6 Juggernaut,Kuat Drive Yards,350000,49.4,160,20,300,30000,20 days,wheeled walker
-Corporate Alliance tank droid,NR-N99 Persuader-class droid enforcer,Techno Union,49000,10.96,100,0,4,none,none,droid tank
+Corporate Alliance tank droid,NR-N99 Persuader-class droid enforcer,Techno Union,49000,10.96,100,0,4,0,none,droid tank
 Droid gunship,HMP droid gunship,"Baktoid Fleet Ordnance, Haor Chall Engineering",60000,12.3,820,0,0,0,none,airspeeder
 AT-RT,All Terrain Recon Transport,Kuat Drive Yards,40000,3.2,90,1,0,20,1 day,walker
 AT-TE,All Terrain Tactical Enforcer,"Rothana Heavy Engineering, Kuat Drive Yards",,13.2,60,6,36,10000,21 days,walker
