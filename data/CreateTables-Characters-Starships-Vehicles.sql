@@ -30,7 +30,7 @@ CREATE TABLE starships (
 );
 
 DROP TABLE IF EXISTS vehicles;
-CREATE TABLE starships (
+CREATE TABLE vehicles (
   name text,
   model text,
   manufacturer text,
