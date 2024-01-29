@@ -1,0 +1,38 @@
+name,classification,designation,average_height,skin_colors,hair_colors,eye_colors,average_lifespan,language,homeworld
+Hutt,gastropod,sentient,300,"green, brown, tan",,"yellow, red",1000,Huttese,Nal Hutta
+Yoda's species,mammal,sentient,66,"green, yellow","brown, white","brown, green, yellow",900,Galactic basic,NA
+Trandoshan,reptile,sentient,200,"brown, green",NA,"yellow, orange",0,Dosh,Trandosha
+Mon Calamari,amphibian,sentient,160,"red, blue, brown, magenta",,yellow,0,Mon Calamarian,Mon Cala
+Ewok,mammal,sentient,100,brown,"white, brown, black","orange, brown",0,Ewokese,Endor
+Sullustan,mammal,sentient,180,pale,NA,black,0,Sullutese,Sullust
+Neimodian,NA,sentient,180,"grey, green",NA,"red, pink",0,Neimoidia,Cato Neimoidia
+Gungan,amphibian,sentient,190,"brown, green",NA,orange,0,Gungan basic,Naboo
+Toydarian,mammal,sentient,120,"blue, green, grey",,yellow,91,Toydarian,Toydaria
+Dug,mammal,sentient,100,"brown, purple, grey, red",,"yellow, blue",0,Dugese,Malastare
+Twi'lek,mammals,sentient,200,"orange, yellow, blue, green, pink, purple, tan",,"blue, brown, orange, pink",,Twi'leki,Ryloth
+Aleena,reptile,sentient,80,"blue, gray",NA,NA,79,Aleena,Aleen Minor
+Vulptereen,NA,sentient,100,grey,NA,yellow,0,vulpterish,Vulpter
+Xexto,NA,sentient,125,"grey, yellow, purple",,black,0,Xextese,Troiken
+Toong,NA,sentient,200,"grey, green, yellow",,orange,0,Tundan,Tund
+Cerean,mammal,sentient,200,pale pink,"red, blond, black, white",hazel,0,Cerean,Cerea
+Nautolan,amphibian,sentient,180,"green, blue, brown, red",,black,70,Nautila,Glee Anselm
+Zabrak,mammal,sentient,180,"pale, brown, red, orange, yellow",black,"brown, orange",0,Zabraki,Iridonia
+Tholothian,mammal,sentient,0,dark,NA,"blue, indigo",0,NA,Tholoth
+Iktotchi,NA,sentient,180,pink,NA,orange,0,Iktotchese,Iktotch
+Quermian,mammal,sentient,240,white,NA,yellow,86,Quermian,Quermia
+Kel Dor,NA,sentient,180,"peach, orange, red",,"black, silver",70,Kel Dor,Dorin
+Chagrian,amphibian,sentient,190,blue,NA,blue,0,Chagria,Champala
+Geonosian,insectoid,sentient,178,"green, brown",NA,"green, hazel",0,Geonosian,Geonosis
+Mirialan,mammal,sentient,180,"yellow, green","black, brown","blue, green, red, yellow, brown, orange",,Mirialan,Mirial
+Clawdite,reptilian,sentient,180,"green, yellow",NA,yellow,70,Clawdite,Zolan
+Besalisk,amphibian,sentient,178,brown,NA,yellow,75,besalisk,Ojom
+Kaminoan,amphibian,sentient,220,"grey, blue",NA,black,80,Kaminoan,Kamino
+Skakoan,mammal,sentient,0,"grey, green",NA,NA,0,Skakoan,Skako
+Muun,mammal,sentient,190,"grey, white",NA,black,100,Muun,Muunilinst
+Togruta,mammal,sentient,180,"red, white, orange, yellow, green, blue",,"red, orange, yellow, green, blue, black",94,Togruti,Shili
+Kaleesh,reptile,sentient,170,"brown, orange, tan",,yellow,80,Kaleesh,Kalee
+Pau'an,mammal,sentient,190,grey,NA,black,700,Utapese,Utapau
+Wookiee,mammal,sentient,210,grey,"black, brown","blue, green, yellow, brown, golden, red",400,Shyriiwook,Kashyyyk
+Droid,artificial,sentient,0,NA,NA,NA,0,NA,NA
+Human,mammal,sentient,180,"caucasian, black, asian, hispanic","blonde, brown, black, red","brown, blue, green, hazel, grey, amber",120,Galactic Basic,Coruscant
+Rodian,sentient,reptilian,170,"green, blue",NA,black,,Galactic Basic,Rodia
