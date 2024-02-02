@@ -57,6 +57,47 @@ def test_queries():
         AND lifespan = 0
         AND homeworld = 'Trandosha';
         ''',
+        '''
+        SELECT name
+        FROM characters
+        WHERE height > 200
+        AND mass > 76
+        AND gender = 'male'
+        AND species = 'Human'
+        ''',
+        '''
+        SELECT name
+        FROM characters
+        WHERE skin_color = 'gold'
+        AND height > 160
+        AND mass > 50
+        AND species = 'Droid'
+        ''',
+        '''
+        SELECT name
+        FROM starships
+        WHERE length < 100
+        AND crew < 10
+        ''',
+        '''
+        SELECT name
+        FROM starships
+        WHERE cost_in_credits > 100000
+        AND crew > 100
+        AND passengers > 50
+        ''',
+        '''
+        SELECT name
+        FROM vehicles
+        WHERE cost_in_credits > 10000
+        AND cargo_capacity > 100
+        ''',
+        '''
+        SELECT name
+        FROM vehicles
+        WHERE manufacturer = 'Incom Corporation'
+        AND crew > 3
+        ''',
     ]
 
     if tests is None:
