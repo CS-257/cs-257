@@ -4,7 +4,7 @@ function setup(){
 
 function loadCriteria(){
 	var select = document.getElementById('filter_criteria_selector');
-    let criteria = criteriaOptions.split(",")
+    let criteria = criteriaOptions.slice(1,-1).replace("'","").split(",");
 
     for (let i = 0; i < criteria.length; i++) {
         addToSelector(criteria[i],select)
