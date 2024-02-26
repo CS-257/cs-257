@@ -4,8 +4,9 @@ function setup(){
 
 function loadCriteria(){
 	var select = document.getElementById('filter_criteria_selector');
+    let criteria = criteriaOptions.split(",")
 
-    criteriaOptions.forEach(addThisToSelector(select))
+    criteria.forEach(addThisToSelector(select))
 }
 
 function addThisToSelector(selector){
