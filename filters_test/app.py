@@ -17,7 +17,7 @@ def get_all_columns(db):
     conn = connect()
     cur = conn.cursor()
 
-    sql = "SELECT * FROM starships WHERE name='Executor'"
+    sql = "SELECT column_name, data_type FROM information_schema.columns WHERE table_schema = 'public' AND table_name = %s;"
     
     cur.execute( sql, [db] )
 
