@@ -5,14 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Filter Test!</title>
-    <link rel="/static/style/stylesheet" href="style.css">
+    
+    <!--<link rel="/static/style/stylesheet" href="style.css">
 
     <script type="text/javascript">
         var criteriaOptions = {{ data.criteriaOptions }}
-    </script>
+    </script> -->
   </head>
   <body >
-	<script type="text/javascript" src="index.js"></script>
+    <script>
+        var criteriaOptions = {{ data.criteriaOptions }}
+    </script>
+	<script src="index.js"></script>
 
     <select onload="setup();" name="Category" onchange="window.location.href=this.value;" id="filter_category_selector">
       <option disabled selected value> -- select an option -- </option>
