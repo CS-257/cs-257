@@ -10,8 +10,8 @@ function loadCriteria(){
 
 function addThisToSelector(selector){
      var opt = document.createElement('option');
-     opt.value = this;
-     opt.innerHTML = this;
+     opt.value = this[0];
+     opt.innerHTML = this[0];
      selector.appendChild(opt);
 }
 
