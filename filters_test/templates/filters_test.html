@@ -11,10 +11,10 @@
         var criteriaOptions = {{ data.criteriaOptions }}
     </script>
   </head>
-  <body onload="setup();">
+  <body >
 	<script type="text/javascript" src="index.js"></script>
 
-    <select name="Category" onchange="window.location.href=this.value;" id="filter_category_selector">
+    <select onload="setup();" name="Category" onchange="window.location.href=this.value;" id="filter_category_selector">
       <option disabled selected value> -- select an option -- </option>
       <option value="./characters">Characters</option>
       <option value="./planets">Planets</option>
