@@ -28,7 +28,7 @@ def get_all_columns(db):
 @app.route('/filter/<category>')
 def filters_test(category):
     data = {"categories" : get_all_columns(category)}
-    return render_template("index.html", data=data)
+    return render_template("filters_test.html", data=data)
 
 if __name__ == '__main__':
     my_port = 5122
