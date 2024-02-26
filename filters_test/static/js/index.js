@@ -1,5 +1,5 @@
 function setup(){
-    loadCriteria();
+    testAddToSelector();
 }
 
 function loadCriteria(){
@@ -12,6 +12,14 @@ function loadCriteria(){
 }
 
 function addThisToSelector(selector){
+     var opt = document.createElement('option');
+     opt.value = "AAAA";
+     opt.innerHTML = "AAAA";
+     selector.appendChild(opt);
+}
+
+function testAddToSelector(){
+	var selector = document.getElementById('filter_criteria_selector');
      var opt = document.createElement('option');
      opt.value = "AAAA";
      opt.innerHTML = "AAAA";
