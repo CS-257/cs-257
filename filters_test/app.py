@@ -17,7 +17,8 @@ def get_all_columns(db):
     conn = connect()
     cur = conn.cursor()
 
-    sql = "SELECT column_name, data_type FROM information_schema.columns WHERE table_schema = 'public' AND table_name = %s;"
+    sql = "SELECT column_name FROM information_schema.columns WHERE table_schema = 'public' AND table_name = %s;"
+    #, data_type
     
     cur.execute( sql, [db] )
 
