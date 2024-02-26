@@ -10,7 +10,7 @@ def connect():
         host="localhost",
         port=5432,
         database="honga2",
-        user="honga2",
+        user="bremerj",
         password="lion587smile")
 
 def get_all_columns(db):
