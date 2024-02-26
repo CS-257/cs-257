@@ -14,8 +14,14 @@ function loadCriteria(){
 function addToSelector(add,selector){
      var opt = document.createElement('option');
      opt.value = add;
-     opt.innerHTML = add;
+     opt.innerHTML = capitalizeWord(add);
      selector.appendChild(opt);
+}
+
+function capitalizeWord(word){
+    const capitalized =
+        word.charAt(0).toUpperCase()
+        + word.slice(1);
 }
 
 //JAVASCRIPT THEN-CHAINING -- FUNCTIONS DONT GET TIME COORDINATED
