@@ -24,6 +24,10 @@ def get_all_columns(db):
 
     data = cur.fetchall();
 
+    columns = []
+    for column in data:
+        columns.append(column[0])
+
     return data
 
 @app.route('/filter/<category>')
