@@ -4,9 +4,10 @@ function setup(){
 
 function loadCriteria(){
 	var select = document.getElementById('filter_criteria_selector');
-    let criteria = criteriaOptions.split(",")
+    //let criteria = criteriaOptions.split(",")
+    let criteria = ["test1","test2","test3"];
 
-    criteria.forEach(addThisToSelector(select))
+    criteria.forEach(addThisToSelector(select));
 }
 
 function addThisToSelector(selector){
