@@ -1,5 +1,5 @@
 function setup(){
-    testAddToSelector();
+    loadCriteria();
 }
 
 function loadCriteria(){
