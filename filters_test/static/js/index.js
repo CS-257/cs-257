@@ -8,12 +8,13 @@ function loadCriteria(){
     let criteria = ["test1","test2","test3"];
 
     criteria.forEach(addThisToSelector(select));
+    addThisToSelector(select);
 }
 
 function addThisToSelector(selector){
      var opt = document.createElement('option');
-     opt.value = this;
-     opt.innerHTML = this;
+     opt.value = "AAAA";
+     opt.innerHTML = "AAAA";
      selector.appendChild(opt);
 }
 
