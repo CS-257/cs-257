@@ -26,7 +26,7 @@ def get_all_columns(db):
 
     columns = []
     for column in data:
-        columns.append(column[0])
+        columns.append(str(column[0]))
 
     return columns
 
