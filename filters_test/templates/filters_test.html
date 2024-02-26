@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Filter Test!</title>
+    <link rel="/static/style/stylesheet" href="style.css">
+
+    <script type="text/javascript">
+        var x = {{ data }}
+    </script>
+  </head>
+  <body onload="setup()">
+	<script type="text/javascript" src="index.js"></script>
+
+    <select name="Category" id="filter_category_selector">
+      <option value="characters">Characters</option>
+      <option value="planets">Planets</option>
+      <option value="species">Species</option>
+      <option value="vehicles">Vehicles</option>
+      <option value="starships">Starships</option>
+    </select>
+
+    <br>
+
+    <select name="Criteria" id="filter_criteria_selector">
+    </select>
+    <button type="button">Add Filter</button>
+
+    <br>
+
+    {{data}}
+
+    <button type="button">Search</button>
+  </body>
+</html>
+
