@@ -4,8 +4,7 @@ function setup(){
 
 function loadCriteria(){
 	var select = document.getElementById('filter_criteria_selector');
-    //let criteria = criteriaOptions.split(",")
-    let criteria = ["test1","test2","test3"];
+    let criteria = criteriaOptions.split(",")
 
     criteria.forEach(addThisToSelector(select));
     addThisToSelector(select);
@@ -13,16 +12,8 @@ function loadCriteria(){
 
 function addThisToSelector(selector){
      var opt = document.createElement('option');
-     opt.value = "AAAA";
-     opt.innerHTML = "AAAA";
-     selector.appendChild(opt);
-}
-
-function testAddToSelector(){
-	var selector = document.getElementById('filter_criteria_selector');
-     var opt = document.createElement('option');
-     opt.value = "AAAA";
-     opt.innerHTML = "AAAA";
+     opt.value = this;
+     opt.innerHTML = this;
      selector.appendChild(opt);
 }
 
