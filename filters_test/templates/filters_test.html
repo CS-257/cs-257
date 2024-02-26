@@ -8,18 +8,18 @@
     <link rel="/static/style/stylesheet" href="style.css">
 
     <script type="text/javascript">
-        var x = {{ data }}
+        var criteriaOptions = {{ data.criteriaOptions }}
     </script>
   </head>
   <body onload="setup()">
 	<script type="text/javascript" src="index.js"></script>
 
-    <select name="Category" id="filter_category_selector">
-      <option value="characters">Characters</option>
-      <option value="planets">Planets</option>
-      <option value="species">Species</option>
-      <option value="vehicles">Vehicles</option>
-      <option value="starships">Starships</option>
+    <select name="Category" onchange="window.location.href=this.value;" id="filter_category_selector">
+      <option value="./characters">Characters</option>
+      <option value="./planets">Planets</option>
+      <option value="./species">Species</option>
+      <option value="./vehicles">Vehicles</option>
+      <option value="./starships">Starships</option>
     </select>
 
     <br>
