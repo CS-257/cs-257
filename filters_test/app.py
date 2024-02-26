@@ -11,7 +11,7 @@ def connect():
         port=5432,
         database="honga2",
         user="bremerj",
-        password="lion587smile")
+        password="tree288cow")
 
 def get_all_columns(db):
     conn = connect()
