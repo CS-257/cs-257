@@ -17,7 +17,7 @@ def get_all_columns(db):
     conn = connect()
     cur = conn.cursor()
 
-    sql = "SELECT * FROM %s WHERE false"
+    sql = "SELECT * FROM starships WHERE false"
     
     cur.execute( sql, [db] )
 
