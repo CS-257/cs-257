@@ -17,7 +17,7 @@ def get_all_columns(db):
     conn = connect()
     cur = conn.cursor()
 
-    sql = "SELECT name FROM sys.columns WHERE object_id = OBJECT_ID('%s')"
+    sql = "SELECT name FROM sys.columns WHERE object_id = OBJECT_ID(%s)"
     
     cur.execute( sql, [db] )
 
@@ -27,7 +27,7 @@ def get_all_columns(db):
 
 @app.route('/filter/<category>')
 def filters_test(category):
-    data = {"categories" : get_all_columns("category")}
+    data = {"categories" : get_all_columns(category)}
     return render_template("index.html", data=data)
 
 if __name__ == '__main__':
