@@ -28,7 +28,7 @@ def get_all_columns(db):
     for column in data:
         columns.append(column[0])
 
-    return data
+    return columns
 
 @app.route('/filter/<category>')
 def filters_test(category):
