@@ -18,7 +18,7 @@
     </script>
 	<script src="/static/js/index.js"></script>
 
-    <select onload="setup();" name="Category" onchange="window.location.href=this.value;" id="filter_category_selector">
+    <select name="Category" onchange="window.location.href=this.value;" id="filter_category_selector">
       <option disabled selected value> -- select an option -- </option>
       <option value="./characters">Characters</option>
       <option value="./planets">Planets</option>
@@ -29,7 +29,7 @@
 
     <br>
 
-    <select name="Criteria" id="filter_criteria_selector">
+    <select onload="setup();" name="Criteria" id="filter_criteria_selector">
     </select>
     <button type="button">Add Filter</button>
 
