@@ -7,7 +7,7 @@ function loadCriteria(){
     let criteria = criteriaOptions.split(",")
 
     for (let i = 0; i < criteria.length; i++) {
-        addThisToSelector(criteria[i],select)
+        addToSelector(criteria[i],select)
     }
 }
 
