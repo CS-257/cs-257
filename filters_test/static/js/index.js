@@ -6,14 +6,15 @@ function loadCriteria(){
 	var select = document.getElementById('filter_criteria_selector');
     let criteria = criteriaOptions.split(",")
 
-    criteria.forEach(addThisToSelector(select));
-    addThisToSelector(select);
+    for (let i = 0; i < criteria.length; i++) {
+        addThisToSelector(criteria[i],select)
+    }
 }
 
-function addThisToSelector(selector){
+function addToSelector(add,selector){
      var opt = document.createElement('option');
-     opt.value = this;
-     opt.innerHTML = this;
+     opt.value = add;
+     opt.innerHTML = add;
      selector.appendChild(opt);
 }
 
