@@ -54,7 +54,7 @@ function filterCriteriaSelected(){
         case "text":
             document.getElementById("criteria_filter_options_text").style.display = "block";
             break;
-        case "character varying":
+        case "charactervarying":
             document.getElementById("criteria_filter_options_text").style.display = "block";
             break;
         case "real":
