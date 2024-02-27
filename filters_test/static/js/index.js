@@ -53,7 +53,13 @@ function filterCriteriaSelected(){
         case "text":
             document.getElementById("criteria_filter_options_text").style.display = "block";
             break;
+        case "character varying":
+            document.getElementById("criteria_filter_options_text").style.display = "block";
+            break;
         case "real":
+            document.getElementById("criteria_filter_options_real").style.display = "block";
+            break;
+        case "integer":
             document.getElementById("criteria_filter_options_real").style.display = "block";
             break;
     }
