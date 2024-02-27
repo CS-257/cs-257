@@ -66,21 +66,20 @@ def filters_test_search(category,search):
 
         searchQuery = ""
 
-        match(searchTerm_criteria_filter):
-            case "filter_real_is":
-                searchQuery = searchTerm_criteria + " = " + searchTerm_value
-            case "filter_real_greaterThan":
-                searchQuery = searchTerm_criteria + " > " + searchTerm_value
-            case "filter_real_lessThan":
-                searchQuery = searchTerm_criteria + " < " + searchTerm_value
-            case "filter_text_is":
-                searchQuery = searchTerm_criteria + " = '" + searchTerm_value + "'"
-            case "filter_text_contains":
-                searchQuery = searchTerm_criteria + " LIKE '%" + searchTerm_value + "%'"
-            case "filter_text_startsWith":
-                searchQuery = searchTerm_criteria + " LIKE '" + searchTerm_value + "%'"
-            case "filter_text_endsWith":
-                searchQuery = searchTerm_criteria + " LIKE '%" + searchTerm_value + "'"
+        if(searchTerm_criteria_filter == "filter_real_is"):
+            searchQuery = searchTerm_criteria + " = " + searchTerm_value
+        elif(searchTerm_criteria_filter == "filter_real_greaterThan"):
+            searchQuery = searchTerm_criteria + " > " + searchTerm_value
+        elif(searchTerm_criteria_filter == "filter_real_lessThan"):
+            searchQuery = searchTerm_criteria + " < " + searchTerm_value
+        elif(searchTerm_criteria_filter == "filter_text_is"):
+            searchQuery = searchTerm_criteria + " = '" + searchTerm_value + "'"
+        elif(searchTerm_criteria_filter == "filter_text_contains"):
+            searchQuery = searchTerm_criteria + " LIKE '%" + searchTerm_value + "%'"
+        elif(searchTerm_criteria_filter == "filter_text_startsWith"):
+            searchQuery = searchTerm_criteria + " LIKE '" + searchTerm_value + "%'"
+        elif(searchTerm_criteria_filter == "filter_text_endsWith"):
+            searchQuery = searchTerm_criteria + " LIKE '%" + searchTerm_value + "'"
 
         sqlQuery += searchQuery
 
