@@ -41,7 +41,20 @@ function cleanTextForDisplay(w){
 }
 
 function filterCriteriaSelected(){
-    document.getElementById("criteria_filter_options_real").style.display = "block";
+    let selectedCriteria = document.getElementById("criteria_filter_selector");
+    let selectedCriteria_type = criteriaOptions_dataTypes[criteriaOptions.indexOf("selectedCriteria")];
+
+    document.getElementsByClass("criteria_filter_options").style.display = "none";
+
+    switch(selectedCriteria_type){
+        case "text":
+            document.getElementById("criteria_filter_options_text").style.display = "block";
+            break;
+        case "real":
+            document.getElementById("criteria_filter_options_real").style.display = "block";
+            break;
+    }
+    
 }
 
 //JAVASCRIPT THEN-CHAINING -- FUNCTIONS DONT GET TIME COORDINATED
