@@ -46,6 +46,7 @@ function filterCriteriaSelected(){
 
     //document.getElementsByClassName("criteria_filter_options").style.display = "none";
 
+    console.log(selectedCriteria);
     console.log(selectedCriteria_type);
     document.getElementById("criteria_filter_options_text").style.display = "block";
     switch(selectedCriteria_type){
