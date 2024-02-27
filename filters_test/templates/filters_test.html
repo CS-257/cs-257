@@ -20,8 +20,9 @@
 	<script src="/static/js/index.js"></script>
 
 
+    <h4> {{category}} </h4>
     <select name="Category" onchange="window.location.href=this.value;" id="filter_category_selector">
-      <option selected disabled value> {{category}} </option>
+      <option selected disabled value> -- Select a Category </option>
       <option value="./characters">Characters</option>
       <option value="./planets">Planets</option>
       <option value="./species">Species</option>
@@ -31,14 +32,40 @@
 
     <br>
 
-    <select name="Criteria" id="filter_criteria_selector">
+    <select onselect="filterCriteriaSelected();" name="Criteria" id="criteria_filter_selector">
+        <option selected disabled value> -- Select a Criteria -- </option>
     </select>
+
+    <div id="criteria_filter_options" disabled>
+        <select id="criteria_filter_options_dropdown_real">
+          <option>Is</option>
+          <option>Close To</option>
+          <option>Greater Than</option>
+          <option>Less Than</option>
+        </select>
+
+        <input type="number" id="criteria_filter_options_entry_real">
+
+        <select id="criteria_filter_options_dropdown_text">
+          <option>Is</option>
+          <option>Contains</option>
+          <option>Starts With</option>
+          <option>Ends With</option>
+        </select>
+
+        <input type="text" id="criteria_filter_options_entry_text">
+    </div>
+
     <button type="button">Add Filter</button>
 
-    <p>
-        {{ data.criteriaOptions_dataTypes }}
-    </p>
+    <br>
+    <br>
 
+    <div id="criteria_filters">
+
+    </div>
+
+    <br>
     <br>
 
     <button type="button">Search</button>

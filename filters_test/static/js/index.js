@@ -3,7 +3,7 @@ window.onload = function setup(){
 }
 
 function loadCriteria(){
-	var select = document.getElementById('filter_criteria_selector');
+	var select = document.getElementById('criteria_filter_selector');
     let criteria = stringToList(criteriaOptions);
 
     for (let i = 0; i < criteria.length; i++) {
@@ -38,6 +38,10 @@ function cleanTextForDisplay(w){
     }
 
     return cleanedText;
+}
+
+function filterCriteriaSelected(){
+    document.getElementById('criteria_filter_options').disabled = false;
 }
 
 //JAVASCRIPT THEN-CHAINING -- FUNCTIONS DONT GET TIME COORDINATED
