@@ -4,11 +4,15 @@ window.onload = function setup(){
 
 function loadCriteria(){
 	var select = document.getElementById('filter_criteria_selector');
-    let criteria = criteriaOptions.slice(1,-1).replaceAll("&#39;","").split(",");
+    let criteria = stringToList(criteriaOptions);
 
     for (let i = 0; i < criteria.length; i++) {
         addToSelector(criteria[i],select)
     }
+}
+
+function stringToList(str){
+    return str.slice(1,-1).replaceAll("&#39;","").split(",");
 }
 
 function addToSelector(add,selector){

@@ -17,22 +17,30 @@ def get_all_columns(db):
     conn = connect()
     cur = conn.cursor()
 
-    sql = "SELECT column_name FROM information_schema.columns WHERE table_schema = 'public' AND table_name = %s;"
-    #, data_type
-    
+    sql = "SELECT column_name, data_type FROM information_schema.columns WHERE table_schema = 'public' AND table_name = %s;"
     cur.execute( sql, [db] )
-
     data = cur.fetchall();
 
     columns = []
+    columnDataTypes = []
+
     for column in data:
         columns.append(str(column[0]))
+        columnDataTypes.append(str(column[1]))
 
-    return columns
+    return { 
+        "columns" : columns,
+        "columnDataTypes" : columnDataTypes
+    }
 
 @app.route('/filter/<category>')
 def filters_test(category):
-    data = {"criteriaOptions" : get_all_columns(category)}
+    allColumns = get_all_columns(category);
+    data = {
+        "criteriaOptions" : allColumns["columns"], 
+        "criteriaOptions_dataTypes" : allColumns["columnDataTypes"]
+    }
+
     return render_template("filters_test.html", data=data, category=category)
 
 if __name__ == '__main__':

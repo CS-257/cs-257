@@ -15,11 +15,13 @@
   <body>
     <script>
         var criteriaOptions = "{{ data.criteriaOptions }}";
+        var criteriaOptions_dataTypes = "{{ data.criteriaOptions_dataTypes }}"
     </script>
 	<script src="/static/js/index.js"></script>
 
+
     <select name="Category" onchange="window.location.href=this.value;" id="filter_category_selector">
-      <option selected disabled value> -- Select An Option -- </option>
+      <option selected disabled value> {{category}} </option>
       <option value="./characters">Characters</option>
       <option value="./planets">Planets</option>
       <option value="./species">Species</option>
@@ -32,6 +34,10 @@
     <select name="Criteria" id="filter_criteria_selector">
     </select>
     <button type="button">Add Filter</button>
+
+    <p>
+        {{ data.criteriaOptions_dataTypes }}
+    </p>
 
     <br>
 
