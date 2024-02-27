@@ -143,7 +143,7 @@ function search(){
         searchQuery += "&"+criteria["criteria"]+"&"+criteria["criteria_filter"]+"&"+criteria["value"];
     }
 
-    window.location.href = "/search/"+searchQuery;
+    window.location.href = "./"+category+"/search/"+searchQuery;
 }
 
 function sanitizeUserInputForSearch(inp){

@@ -85,6 +85,8 @@ def filters_test_search(category,search):
 
     sqlQuery += ";"
 
+    print(sqlQuery)
+
     conn = connect()
     cur = conn.cursor()
 
