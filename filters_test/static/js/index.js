@@ -30,7 +30,7 @@ function cleanTextForDisplay(w){
             word.charAt(0).toUpperCase()
             + word.slice(1);
 
-        cleanedText += word + " ";
+        cleanedText += capitalized + " ";
     }
 
     return cleanedText;
