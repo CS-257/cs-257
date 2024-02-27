@@ -18,7 +18,7 @@ function addToSelector(add,selector){
      selector.appendChild(opt);
 }
 
-function capitalizeWord(w){
+function cleanTextForDisplay(w){
     let word = w.replaceAll(" ","").replaceAll("_", " ");
     const capitalized =
         word.charAt(0).toUpperCase()
