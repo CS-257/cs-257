@@ -43,11 +43,11 @@ function cleanTextForDisplay(w){
 
 
 function disableHiddenElements(){
-    document.getElementByClassName('criteria_filter_options').disabled = true;
+    document.getElementsByClassName('criteria_filter_options').disabled = true;
 }
 
 function filterCriteriaSelected(){
-    document.getElementByClassName('criteria_filter_options_text').disabled = false;
+    document.getElementsByClassName('criteria_filter_options_text').disabled = false;
 }
 
 //JAVASCRIPT THEN-CHAINING -- FUNCTIONS DONT GET TIME COORDINATED
