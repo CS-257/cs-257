@@ -76,14 +76,14 @@ function filterCriteriaSelected(){
 
 var filterCriteria = [];
 const criteriaTypesToDisplay = {
-    "filter_real_is": "is",
-    "filter_real_closeTo": "close to",
-    "filter_real_greaterThan": "greater than",
-    "filter_real_lessThan": "less than",
-    "filter_text_is": "is",
+    "filter_real_is": "Is",
+    "filter_real_closeTo": "Close To",
+    "filter_real_greaterThan": "Greater Than",
+    "filter_real_lessThan": "Less Than",
+    "filter_text_is": "Is",
     "filter_text_contains": "contains",
-    "filter_text_startsWith": "starts with",
-    "filter_text_endsWith": "ends with",
+    "filter_text_startsWith": "Starts With",
+    "filter_text_endsWith": "Ends With",
 }
 
 function filterCriteriaAdded(){
@@ -112,15 +112,20 @@ function filterCriteriaAdded(){
 
     }
 
+    //stops if the value is empty
+    if(newFilter["value"] == ""){
+        return;
+    }
+
     filterCriteria.push(newFilter);
     console.log(filterCriteria);
 
     const filtersListDisplay = document.getElementById("criteria_filters");
     
+    filtersListDisplay.appendChild(document.createElement("br"));
     filtersListDisplay.appendChild(document.createTextNode(  
         cleanTextForDisplay(newFilter["criteria"]) + " " 
         + criteriaTypesToDisplay[newFilter["criteria_filter"]] + " " 
         + newFilter["value"] 
     ));
-    filtersListDisplay.appendChild(document.createElement("br"));
 }
