@@ -46,14 +46,9 @@ function filterCriteriaSelected(){
         stringToList(criteriaOptions).indexOf(selectedCriteria)
     ];
 
-    //document.getElementsByClassName("criteria_filter_options").style.display = "none";
+    document.getElementById("criteria_filter_options_text").style.display = "none";
+    document.getElementById("criteria_filter_options_real").style.display = "none";
 
-    console.log(stringToList(criteriaOptions));
-    console.log(stringToList(criteriaOptions_dataTypes));
-    console.log(stringToList(criteriaOptions).indexOf(selectedCriteria));
-    console.log(selectedCriteria);
-    console.log(selectedCriteria_type);
-    document.getElementById("criteria_filter_options_text").style.display = "block";
     switch(selectedCriteria_type){
         case "text":
             document.getElementById("criteria_filter_options_text").style.display = "block";
