@@ -49,6 +49,7 @@ function filterCriteriaSelected(){
     document.getElementById("criteria_filter_options_text").style.display = "none";
     document.getElementById("criteria_filter_options_real").style.display = "none";
 
+    console.log(selectedCriteria_type);
     switch(selectedCriteria_type){
         case "text":
             document.getElementById("criteria_filter_options_text").style.display = "block";
