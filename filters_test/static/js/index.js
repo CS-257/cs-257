@@ -68,17 +68,29 @@ function filterCriteriaSelected(){
     } else if (selectedCriteria_type == "real" || selectedCriteria_type == "integer"){
         
         document.getElementById("criteria_filter_options_real").style.display = "block";
-        filterCriteriaTypeCurrent = "";
+        filterCriteriaTypeCurrent = "real";
     
     }
     
 }
 
 var filterCriteria = [];
+const criteriaTypesToDisplay = {
+    "filter_real_is": "is",
+    "filter_real_closeTo": "close to",
+    "filter_real_greaterThan": "greater than",
+    "filter_real_lessThan": "less than",
+    "filter_text_is": "is",
+    "filter_text_contains": "contains",
+    "filter_text_startsWith": "starts with",
+    "filter_text_endsWith": "ends with",
+}
+
 function filterCriteriaAdded(){
     let newFilter = {
         "type": filterCriteriaTypeCurrent,
-        "criteria": "dummy value",
+        "criteria": document.getElementById("criteria_filter_selector").value,
+        "criteria_filter": "dummy value",
         "value": "dummy value"
     }
 
@@ -87,14 +99,14 @@ function filterCriteriaAdded(){
             return;
 
         case "text":
-            newFilter["criteria"] = document.getElementById("criteria_filter_options_dropdown_real").value;
-            newFilter["value"] = document.getElementById("criteria_filter_options_entry_real").value.toString();
+            newFilter["criteria_filter"] = document.getElementById("criteria_filter_options_dropdown_text").value;
+            newFilter["value"] = document.getElementById("criteria_filter_options_entry_text").value;
 
             break;
 
         case "real":
-            newFilter["criteria"] = document.getElementById("criteria_filter_options_dropdown_text").value;
-            newFilter["value"] = document.getElementById("criteria_filter_options_entry_text").value;
+            newFilter["criteria_filter"] = document.getElementById("criteria_filter_options_dropdown_real").value;
+            newFilter["value"] = document.getElementById("criteria_filter_options_entry_real").value.toString();
 
             break;
 
@@ -102,4 +114,13 @@ function filterCriteriaAdded(){
 
     filterCriteria.push(newFilter);
     console.log(filterCriteria);
+
+    const filtersListDisplay = document.getElementById("criteria_filters");
+    
+    filtersListDisplay.appendChild(document.createTextNode(  
+        cleanTextForDisplay(newFilter["criteria"]) + " " 
+        + criteriaTypesToDisplay[newFilter["criteria_filter"]] + " " 
+        + newFilter["value"] 
+    ));
+    filtersListDisplay.appendChild(document.createElement("br"));
 }
