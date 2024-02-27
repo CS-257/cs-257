@@ -48,8 +48,8 @@ function cleanTextForDisplay(w){
     return cleanedText;
 }
 
-var filterCriteriaTypeCurrent = "none";
 
+var filterCriteriaTypeCurrent = "none";
 function filterCriteriaSelected(){
     let selectedCriteria = document.getElementById("criteria_filter_selector").value;
     let selectedCriteria_type = stringToList(criteriaOptions_dataTypes)[
@@ -87,12 +87,15 @@ const criteriaTypesToDisplay = {
 }
 
 function filterCriteriaAdded(){
+
+
     let newFilter = {
         "type": filterCriteriaTypeCurrent,
         "criteria": document.getElementById("criteria_filter_selector").value,
         "criteria_filter": "dummy value",
         "value": "dummy value"
     }
+
 
     switch(filterCriteriaTypeCurrent){
         case "none":
@@ -112,20 +115,37 @@ function filterCriteriaAdded(){
 
     }
 
+
     //stops if the value is empty
     if(newFilter["value"] == ""){
         return;
     }
 
+
     filterCriteria.push(newFilter);
-    console.log(filterCriteria);
+
 
     const filtersListDisplay = document.getElementById("criteria_filters");
-    
+
     filtersListDisplay.appendChild(document.createElement("br"));
     filtersListDisplay.appendChild(document.createTextNode(  
         cleanTextForDisplay(newFilter["criteria"]) + " " 
         + criteriaTypesToDisplay[newFilter["criteria_filter"]] + " " 
         + newFilter["value"] 
     ));
+}
+
+
+function search(){
+    let searchQuery = "";
+    for(let i = 0; i < filterCriteria.length; i++){
+        let criteria = filterCriteria[i];
+        searchQuery += "&"+criteria["type"]+"&"+criteria["criteria"]+"&"+criteria["criteria_filter"]+"&"+criteria["value"];
+    }
+
+    window.location.href = "./search/"+searchQuery;
+}
+
+function sanitizeUserInputForSearch(inp){
+    return inp.toLowerCase().replaceAll(";","").replaceAll("+","").replaceAll("&","").replaceAll(" ","+");
 }
