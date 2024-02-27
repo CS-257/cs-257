@@ -21,7 +21,7 @@ function addToSelector(add,selector){
 function cleanTextForDisplay(w){
     let words = w.replaceAll(" ","").replaceAll("_", " ").split(" ");
 
-    const cleanedText = "";
+    let cleanedText = "";
     for(let i = 0; i < words.length; i++){
         let word = words[i];
         let capitalized =
