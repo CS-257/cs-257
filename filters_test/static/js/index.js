@@ -100,6 +100,6 @@ function filterCriteriaAdded(){
 
     }
 
-    filterCriteria.append(newFilter);
+    filterCriteria.push(newFilter);
     console.log(filterCriteria);
 }
