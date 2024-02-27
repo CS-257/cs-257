@@ -22,13 +22,15 @@ function cleanTextForDisplay(w){
     let words = w.replaceAll(" ","").replaceAll("_", " ").split(" ");
 
     let cleanedText = "";
+
     for(let i = 0; i < words.length; i++){
-        let word = words[i];
+
+        let word = words[i].replaceAll(" ","");
         let capitalized =
             word.charAt(0).toUpperCase()
             + word.slice(1);
 
-        cleanedText += word;
+        cleanedText += word + " ";
     }
 
     return cleanedText;
