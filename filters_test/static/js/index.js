@@ -14,11 +14,12 @@ function loadCriteria(){
 function addToSelector(add,selector){
      var opt = document.createElement('option');
      opt.value = add;
-     opt.innerHTML = capitalizeWord(add);
+     opt.innerHTML = cleanTextForDisplay(add);
      selector.appendChild(opt);
 }
 
-function capitalizeWord(word){
+function capitalizeWord(w){
+    let word = w.replaceAll(" ","").replaceAll("_", " ");
     const capitalized =
         word.charAt(0).toUpperCase()
         + word.slice(1);
