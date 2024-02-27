@@ -1,5 +1,4 @@
-from flask import Flask
-from flask import render_template
+from flask import *
 import psycopg2
 
 app = Flask(__name__)
@@ -33,6 +32,10 @@ def get_all_columns(db):
         "columnDataTypes" : columnDataTypes
     }
 
+@app.route('/')
+def index():
+    return redirect(url_for("filters_test"))
+
 @app.route('/filter/<category>')
 def filters_test(category):
     allColumns = get_all_columns(category);
@@ -42,6 +45,54 @@ def filters_test(category):
     }
 
     return render_template("filters_test.html", data=data, category=category)
+
+
+@app.route('/filter/<category>/search/<search>')
+def filters_test_search(category,search):
+    searchTerms = search.split("&")
+
+    if(len(searchTerms) % 3 != 0):
+        return; #if there are the wrong number of search terms, something has gone wrong / user error
+
+    sqlQuery = "SELECT name FROM " + category + " WHERE "
+
+    for i in range(0,len(searchTerms),3):
+        if(i != 0):
+            sqlQuery += " AND "
+
+        searchTerm_criteria = searchTerms[i]
+        searchTerm_criteria_filter = searchTerms[i+1]
+        searchTerm_value = searchTerms[i+2]
+
+        searchQuery = ""
+
+        match searchTerm_criteria_filter:
+            case "filter_real_is":
+                searchQuery = searchTerm_criteria + " = " + searchTerm_value
+            case "filter_real_greaterThan":
+                searchQuery = searchTerm_criteria + " > " + searchTerm_value
+            case "filter_real_lessThan":
+                searchQuery = searchTerm_criteria + " < " + searchTerm_value
+            case "filter_text_is":
+                searchQuery = searchTerm_criteria + " = '" + searchTerm_value + "'"
+            case "filter_text_contains":
+                searchQuery = searchTerm_criteria + " LIKE '%" + searchTerm_value + "%'"
+            case "filter_text_startsWith":
+                searchQuery = searchTerm_criteria + " LIKE '" + searchTerm_value + "%'"
+            case "filter_text_endsWith":
+                searchQuery = searchTerm_criteria + " LIKE '%" + searchTerm_value + "'"
+
+        sqlQuery += searchQuery
+
+    sqlQuery += ";"
+
+    conn = connect()
+    cur = conn.cursor()
+
+    cur.execute( sqlQuery )
+    data = cur.fetchall();
+
+    return data
 
 if __name__ == '__main__':
     my_port = 5122

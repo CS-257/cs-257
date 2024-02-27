@@ -140,10 +140,10 @@ function search(){
     let searchQuery = "";
     for(let i = 0; i < filterCriteria.length; i++){
         let criteria = filterCriteria[i];
-        searchQuery += "&"+criteria["type"]+"&"+criteria["criteria"]+"&"+criteria["criteria_filter"]+"&"+criteria["value"];
+        searchQuery += "&"+criteria["criteria"]+"&"+criteria["criteria_filter"]+"&"+criteria["value"];
     }
 
-    window.location.href = "./search/"+searchQuery;
+    window.location.href = "/search/"+searchQuery;
 }
 
 function sanitizeUserInputForSearch(inp){
