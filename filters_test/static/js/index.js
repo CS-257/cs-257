@@ -1,4 +1,4 @@
-function setup(){
+window.onload = function setup(){
     loadCriteria();
 }
 

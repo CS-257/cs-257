@@ -33,7 +33,7 @@ def get_all_columns(db):
 @app.route('/filter/<category>')
 def filters_test(category):
     data = {"criteriaOptions" : get_all_columns(category)}
-    return render_template("filters_test.html", data=data)
+    return render_template("filters_test.html", data=data, category=category)
 
 if __name__ == '__main__':
     my_port = 5122
