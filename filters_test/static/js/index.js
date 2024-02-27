@@ -43,14 +43,14 @@ function cleanTextForDisplay(w){
 function filterCriteriaSelected(){
     let selectedCriteria = document.getElementById("criteria_filter_selector").value;
     let selectedCriteria_type = stringToList(criteriaOptions_dataTypes)[
-        stringToList(criteriaOptions).indexOf("selectedCriteria")
+        stringToList(criteriaOptions).indexOf(selectedCriteria)
     ];
 
     //document.getElementsByClassName("criteria_filter_options").style.display = "none";
 
     console.log(stringToList(criteriaOptions));
     console.log(stringToList(criteriaOptions_dataTypes));
-    console.log(stringToList(criteriaOptions).indexOf("selectedCriteria"));
+    console.log(stringToList(criteriaOptions).indexOf(selectedCriteria));
     console.log(selectedCriteria);
     console.log(selectedCriteria_type);
     document.getElementById("criteria_filter_options_text").style.display = "block";
