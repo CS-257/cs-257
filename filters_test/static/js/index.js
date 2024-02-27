@@ -1,4 +1,5 @@
 window.onload = function setup(){
+    disableHiddenElements();
     loadCriteria();
 }
 
@@ -40,8 +41,13 @@ function cleanTextForDisplay(w){
     return cleanedText;
 }
 
+
+function disableHiddenElements(){
+    document.getElementByClassName('criteria_filter_options').disabled = true;
+}
+
 function filterCriteriaSelected(){
-    document.getElementById('criteria_filter_options').disabled = false;
+    document.getElementByClassName('criteria_filter_options_text').disabled = false;
 }
 
 //JAVASCRIPT THEN-CHAINING -- FUNCTIONS DONT GET TIME COORDINATED

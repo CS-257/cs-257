@@ -36,25 +36,25 @@
         <option selected disabled value> -- Select a Criteria -- </option>
     </select>
 
-    <section id="criteria_filter_options" disabled>
-        <select id="criteria_filter_options_dropdown_real">
+    <div id="criteria_filter_options">
+        <select class="criteria_filter_options criteria_filter_options_real" id="criteria_filter_options_dropdown_real">
           <option>Is</option>
           <option>Close To</option>
           <option>Greater Than</option>
           <option>Less Than</option>
         </select>
 
-        <input type="number" id="criteria_filter_options_entry_real">
+        <input class="criteria_filter_options criteria_filter_options_real" type="number" id="criteria_filter_options_entry_real">
 
-        <select id="criteria_filter_options_dropdown_text">
+        <select class= "criteria_filter_options criteria_filter_options_text" id="criteria_filter_options_dropdown_text">
           <option>Is</option>
           <option>Contains</option>
           <option>Starts With</option>
           <option>Ends With</option>
         </select>
 
-        <input type="text" id="criteria_filter_options_entry_text">
-    </section>
+        <input class="criteria_filter_options criteria_filter_options_text" type="text" id="criteria_filter_options_entry_text">
+    </div>
 
     <button type="button">Add Filter</button>
 
