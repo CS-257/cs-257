@@ -68,14 +68,38 @@ function filterCriteriaSelected(){
     } else if (selectedCriteria_type == "real" || selectedCriteria_type == "integer"){
         
         document.getElementById("criteria_filter_options_real").style.display = "block";
-        filterCriteriaTypeCurrent = ""
+        filterCriteriaTypeCurrent = "";
     
     }
     
 }
 
+var filterCriteria = [];
 function filterCriteriaAdded(){
+    let newFilter = {
+        "type": filterCriteriaTypeCurrent,
+        "criteria": "dummy value",
+        "value": "dummy value"
+    }
 
+    switch(filterCriteriaTypeCurrent){
+        case "none":
+            return;
+
+        case "text":
+            newFilter["criteria"] = document.getElementById("criteria_filter_options_dropdown_real").value;
+            newFilter["value"] = document.getElementById("criteria_filter_options_entry_real").value.toString();
+
+            break;
+
+        case "real":
+            newFilter["criteria"] = document.getElementById("criteria_filter_options_dropdown_text").value;
+            newFilter["value"] = document.getElementById("criteria_filter_options_entry_text").value;
+
+            break;
+
+    }
+
+    filterCriteria.append(newFilter);
+    console.log(filterCriteria);
 }
-
-//JAVASCRIPT THEN-CHAINING -- FUNCTIONS DONT GET TIME COORDINATED
