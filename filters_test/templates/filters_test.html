@@ -15,7 +15,8 @@
   <body>
     <script>
         var criteriaOptions = "{{ data.criteriaOptions }}";
-        var criteriaOptions_dataTypes = "{{ data.criteriaOptions_dataTypes }}"
+        var criteriaOptions_dataTypes = "{{ data.criteriaOptions_dataTypes }}";
+        var category = "{{category}}";
     </script>
 	<script src="/static/js/index.js"></script>
 
@@ -23,11 +24,11 @@
     <h4> {{category}} </h4>
     <select name="Category" onchange="window.location.href=this.value;" id="filter_category_selector">
       <option selected disabled value> -- Change Category --</option>
-      <option value="./characters">Characters</option>
-      <option value="./planets">Planets</option>
-      <option value="./species">Species</option>
-      <option value="./vehicles">Vehicles</option>
-      <option value="./starships">Starships</option>
+      <option id="filter_category_selector_characters" value="./characters">Characters</option>
+      <option id="filter_category_selector_planets" value="./planets">      Planets</option>
+      <option id="filter_category_selector_species" value="./species">      Species</option>
+      <option id="filter_category_selector_vehicles" value="./vehicles">    Vehicles</option>
+      <option id="filter_category_selector_starships" value="./starships">  Starships</option>
     </select>
 
     <br>
@@ -39,10 +40,10 @@
     <div id="criteria_filter_options">
         <div id="criteria_filter_options_real" class="criteria_filter_options" style="display: none;">
             <select id="criteria_filter_options_dropdown_real">
-              <option>Is</option>
-              <option>Close To</option>
-              <option>Greater Than</option>
-              <option>Less Than</option>
+              <option value="filter_real_is">Is</option>
+              <option value="filter_real_closeTo">Close To</option>
+              <option value="filter_real_greaterThan">Greater Than</option>
+              <option value="filter_real_lessThan">Less Than</option>
             </select>
 
             <input type="number" id="criteria_filter_options_entry_real">
@@ -50,10 +51,10 @@
 
         <div id="criteria_filter_options_text" class="criteria_filter_options" style="display: none;">
             <select id="criteria_filter_options_dropdown_text">
-              <option>Is</option>
-              <option>Contains</option>
-              <option>Starts With</option>
-              <option>Ends With</option>
+              <option value="filter_text_is">Is</option>
+              <option value="filter_text_contains">Contains</option>
+              <option value="filter_text_startsWith">Starts With</option>
+              <option value="filter_text_endsWith">Ends With</option>
             </select>
 
             <input type="text" id="criteria_filter_options_entry_text">

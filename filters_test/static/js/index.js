@@ -1,5 +1,13 @@
 window.onload = function setup(){
+    setSelectedCategory();
     loadCriteria();
+}
+
+function setSelectedCategory(){
+    const categorySelectOption = document.getElementById("filter_category_selector_"+category);
+    if(categorySelectOption != null){
+        categorySelectOption.selected = true;
+    }
 }
 
 function loadCriteria(){
@@ -40,6 +48,8 @@ function cleanTextForDisplay(w){
     return cleanedText;
 }
 
+var filterCriteriaTypeCurrent = "none";
+
 function filterCriteriaSelected(){
     let selectedCriteria = document.getElementById("criteria_filter_selector").value;
     let selectedCriteria_type = stringToList(criteriaOptions_dataTypes)[
@@ -49,22 +59,23 @@ function filterCriteriaSelected(){
     document.getElementById("criteria_filter_options_text").style.display = "none";
     document.getElementById("criteria_filter_options_real").style.display = "none";
 
-    console.log(selectedCriteria_type);
-    switch(selectedCriteria_type){
-        case "text":
-            document.getElementById("criteria_filter_options_text").style.display = "block";
-            break;
-        case "charactervarying":
-            document.getElementById("criteria_filter_options_text").style.display = "block";
-            break;
-        case "real":
-            document.getElementById("criteria_filter_options_real").style.display = "block";
-            break;
-        case "integer":
-            document.getElementById("criteria_filter_options_real").style.display = "block";
-            break;
+
+    if        (selectedCriteria_type == "text" || selectedCriteria_type == "charactervarying"){
+
+        document.getElementById("criteria_filter_options_text").style.display = "block";
+        filterCriteriaTypeCurrent = "text";
+
+    } else if (selectedCriteria_type == "real" || selectedCriteria_type == "integer"){
+        
+        document.getElementById("criteria_filter_options_real").style.display = "block";
+        filterCriteriaTypeCurrent = ""
+    
     }
     
+}
+
+function filterCriteriaAdded(){
+
 }
 
 //JAVASCRIPT THEN-CHAINING -- FUNCTIONS DONT GET TIME COORDINATED
