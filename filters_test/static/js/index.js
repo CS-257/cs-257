@@ -42,7 +42,9 @@ function cleanTextForDisplay(w){
 
 function filterCriteriaSelected(){
     let selectedCriteria = document.getElementById("criteria_filter_selector").value;
-    let selectedCriteria_type = criteriaOptions_dataTypes[criteriaOptions.indexOf("selectedCriteria")];
+    let selectedCriteria_type = stringToList(criteriaOptions_dataTypes)[
+        stringToList(criteriaOptions).indexOf("selectedCriteria")
+    ];
 
     //document.getElementsByClassName("criteria_filter_options").style.display = "none";
 
