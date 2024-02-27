@@ -44,7 +44,7 @@ function filterCriteriaSelected(){
     let selectedCriteria = document.getElementById("criteria_filter_selector");
     let selectedCriteria_type = criteriaOptions_dataTypes[criteriaOptions.indexOf("selectedCriteria")];
 
-    document.getElementsByClassName("criteria_filter_options").style.display = "none";
+    //document.getElementsByClassName("criteria_filter_options").style.display = "none";
 
     switch(selectedCriteria_type){
         case "text":
