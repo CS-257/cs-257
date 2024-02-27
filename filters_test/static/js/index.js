@@ -19,12 +19,19 @@ function addToSelector(add,selector){
 }
 
 function cleanTextForDisplay(w){
-    let word = w.replaceAll(" ","").replaceAll("_", " ");
-    const capitalized =
-        word.charAt(0).toUpperCase()
-        + word.slice(1);
+    let words = w.replaceAll(" ","").replaceAll("_", " ").split(" ");
 
-    return capitalized;
+    const cleanedText = "";
+    for(let i = 0; i < words.length; i++){
+        let word = words[i];
+        let capitalized =
+            word.charAt(0).toUpperCase()
+            + word.slice(1);
+
+        cleanedText += word;
+    }
+
+    return cleanedText;
 }
 
 //JAVASCRIPT THEN-CHAINING -- FUNCTIONS DONT GET TIME COORDINATED
