@@ -12,7 +12,7 @@ function loadCriteria(){
 }
 
 function stringToList(str){
-    return str.slice(1,-1).replaceAll("&#39;","").split(",");
+    return str.slice(1,-1).replaceAll(" ","").replaceAll("&#39;","").split(",");
 }
 
 function addToSelector(add,selector){
@@ -23,7 +23,7 @@ function addToSelector(add,selector){
 }
 
 function cleanTextForDisplay(w){
-    let words = w.replaceAll(" ","").replaceAll("_", " ").split(" ");
+    let words = w.replaceAll("_", " ").split(" ");
 
     let cleanedText = "";
 
