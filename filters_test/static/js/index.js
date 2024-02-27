@@ -41,7 +41,7 @@ function cleanTextForDisplay(w){
 }
 
 function filterCriteriaSelected(){
-    document.getElementById('criteria_filter_options').disabled = false;
+    //document.getElementById('criteria_filter_options').disabled = false;
 }
 
 //JAVASCRIPT THEN-CHAINING -- FUNCTIONS DONT GET TIME COORDINATED
