@@ -49,7 +49,7 @@ def filters_test(category):
 
 @app.route('/filter/<category>/search/<search>')
 def filters_test_search(category,search):
-    searchTerms = search.split("-")
+    searchTerms = search.split("&")
 
     if(len(searchTerms) % 3 != 0):
         return "WRONG NUMBER OF TERMS"; #if there are the wrong number of search terms, something has gone wrong / user error
