@@ -62,7 +62,7 @@ def filters_test_search(category,search):
 
         searchTerm_criteria = searchTerms[i]
         searchTerm_criteria_filter = searchTerms[i+1]
-        searchTerm_value = searchTerms[i+2]
+        searchTerm_value = searchTerms[i+2].upper()
 
         searchQuery = ""
 
@@ -75,11 +75,11 @@ def filters_test_search(category,search):
         elif(searchTerm_criteria_filter == "filter_text_is"):
             searchQuery = searchTerm_criteria + " = '" + searchTerm_value + "'"
         elif(searchTerm_criteria_filter == "filter_text_contains"):
-            searchQuery = searchTerm_criteria + " LIKE '%" + searchTerm_value + "%'"
+            searchQuery = "UPPER(" + searchTerm_criteria + ") LIKE '%" + searchTerm_value + "%'"
         elif(searchTerm_criteria_filter == "filter_text_startsWith"):
-            searchQuery = searchTerm_criteria + " LIKE '" + searchTerm_value + "%'"
+            searchQuery = "UPPER(" + searchTerm_criteria + ") LIKE '" + searchTerm_value + "%'"
         elif(searchTerm_criteria_filter == "filter_text_endsWith"):
-            searchQuery = searchTerm_criteria + " LIKE '%" + searchTerm_value + "'"
+            searchQuery = "UPPER(" + searchTerm_criteria + ") LIKE '%" + searchTerm_value + "'"
 
         sqlQuery += searchQuery
 
