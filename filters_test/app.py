@@ -34,7 +34,7 @@ def get_all_columns(db):
 
 @app.route('/')
 def index():
-    return redirect(url_for("filters_test"))
+    return redirect(url_for("filters_test"), category='starships')
 
 @app.route('/filter/<category>')
 def filters_test(category):
