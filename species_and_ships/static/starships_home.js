@@ -76,13 +76,34 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Function to display species information upon toggle
+    // Function to display starships information upon toggle
     function displayStarshipInformation(starshipsInfo, targetElement) {
+        // Create a formatted string with the starships information
+        var formattedInfo = `
+            <p><strong>Model:</strong> ${starshipsInfo[1]}</p>
+            <p><strong>Manufacturer:</strong> ${starshipsInfo[2]}</p>
+            <p><strong>Cost:</strong> ${starshipsInfo[3]}</p>
+            <p><strong>Length:</strong> ${starshipsInfo[4]}</p>
+            <p><strong>Maximum Atmosphering Speed:</strong> ${starshipsInfo[5]}</p>
+            <p><strong>Crew:</strong> ${starshipsInfo[6]}</p>
+            <p><strong>Passengers:</strong> ${starshipsInfo[7]}</p>
+            <p><strong>Cargo Capacity:</strong> ${starshipsInfo[8]}</p>
+            <p><strong>Consumables:</strong> ${starshipsInfo[9]}</p>
+            <p><strong>Hyperdriving Rating:</strong> ${starshipsInfo[10]}</p>
+            <p><strong>mglt:</strong> ${starshipsInfo[11]}</p>
+            <p><strong>Starship Class:</strong> ${starshipsInfo[12]}</p>
+        `;
+
+        // Create a div element for the info box
         var infoBox = document.createElement('div');
         infoBox.classList.add('info-box');
         infoBox.dataset.starships = starshipsInfo.name;
-        infoBox.textContent = `Info: ${starshipsInfo}`;
+        // Set the HTML content of the info box to the formatted species information
+        infoBox.innerHTML = formattedInfo;
+
+        // Insert the info box after the target element
         targetElement.insertAdjacentElement('afterend', infoBox);
     }
+
 });
 

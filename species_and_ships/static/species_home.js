@@ -76,13 +76,32 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+
     // Function to display species information upon toggle
     function displaySpeciesInformation(speciesInfo, targetElement) {
+        // Create a formatted string with the species information
+        var formattedInfo = `
+            <p><strong>Classification:</strong> ${speciesInfo[1]}</p>
+            <p><strong>Designation:</strong> ${speciesInfo[2]}</p>
+            <p><strong>Average Height:</strong> ${speciesInfo[3]}</p>
+            <p><strong>Skin Color:</strong> ${speciesInfo[4]}</p>
+            <p><strong>Hair Color:</strong> ${speciesInfo[5]}</p>
+            <p><strong>Eye Color:</strong> ${speciesInfo[6]}</p>
+            <p><strong>Lifespan:</strong> ${speciesInfo[7]}</p>
+            <p><strong>Language:</strong> ${speciesInfo[8]}</p>
+            <p><strong>Home World:</strong> ${speciesInfo[9]}</p>
+        `;
+
+        // Create a div element for the info box
         var infoBox = document.createElement('div');
         infoBox.classList.add('info-box');
         infoBox.dataset.species = speciesInfo.name;
-        infoBox.textContent = `Info: ${speciesInfo}`;
+        // Set the HTML content of the info box to the formatted species information
+        infoBox.innerHTML = formattedInfo;
+
+        //Insert the info box after the target element
         targetElement.insertAdjacentElement('afterend', infoBox);
     }
-});
 
+
+});
