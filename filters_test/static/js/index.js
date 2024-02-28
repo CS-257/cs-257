@@ -1,8 +1,10 @@
+//runs when the page is loaded
 window.onload = function setup(){
     setSelectedCategory();
     loadCriteria();
 }
 
+//sets the dropdown for categories (starships, characters, etc...) to default to the currently selected category (as per the address e.g. /filter/starships)
 function setSelectedCategory(){
     const categorySelectOption = document.getElementById("filter_category_selector_"+category);
     if(categorySelectOption != null){
@@ -10,6 +12,7 @@ function setSelectedCategory(){
     }
 }
 
+//loads the possible criteria from the column names of the database
 function loadCriteria(){
 	var select = document.getElementById('criteria_filter_selector');
     let criteria = stringToList(criteriaOptions);
@@ -19,10 +22,12 @@ function loadCriteria(){
     }
 }
 
+//converts lists from strings to lists in js
 function stringToList(str){
     return str.slice(1,-1).replaceAll(" ","").replaceAll("&#39;","").split(",");
 }
 
+//adds supplied value to a <select> element
 function addToSelector(add,selector){
      var opt = document.createElement('option');
      opt.value = add;
@@ -30,6 +35,7 @@ function addToSelector(add,selector){
      selector.appendChild(opt);
 }
 
+//replaces underscores with spaces, capitalizes each word
 function cleanTextForDisplay(w){
     let words = w.replaceAll("_", " ").split(" ");
 
@@ -48,7 +54,7 @@ function cleanTextForDisplay(w){
     return cleanedText;
 }
 
-
+//displays the selection boxes / text entry boxes for the type of data entry required (e.g. "name" will need text entry, "size" will need number entry)
 var filterCriteriaTypeCurrent = "none";
 function filterCriteriaSelected(){
     let selectedCriteria = document.getElementById("criteria_filter_selector").value;
@@ -74,6 +80,7 @@ function filterCriteriaSelected(){
     
 }
 
+//dictionary that converts from filter types to displayable text
 var filterCriteria = [];
 const criteriaTypesToDisplay = {
     "filter_real_is": "Is",
@@ -86,17 +93,18 @@ const criteriaTypesToDisplay = {
     "filter_text_endsWith": "Ends With",
 }
 
+//adds a new filter to the filterCriteria and displays it on the page
 function filterCriteriaAdded(){
 
 
     let newFilter = {
-        "type": filterCriteriaTypeCurrent,
-        "criteria": document.getElementById("criteria_filter_selector").value,
+        "type": filterCriteriaTypeCurrent, //type is either text or real (as in a real number)
+        "criteria": document.getElementById("criteria_filter_selector").value, //the criteria you're filtering by (e.g. Cargo Space / Cost / etc.)
         "criteria_filter": "dummy value",
         "value": "dummy value"
     }
 
-
+    //sets filter values based on user entry and data type
     switch(filterCriteriaTypeCurrent){
         case "none":
             return;
@@ -107,7 +115,7 @@ function filterCriteriaAdded(){
 
             break;
 
-        case "real":
+        case "real": //real --> real number
             newFilter["criteria_filter"] = document.getElementById("criteria_filter_options_dropdown_real").value;
             newFilter["value"] = document.getElementById("criteria_filter_options_entry_real").value.toString();
 
@@ -122,11 +130,13 @@ function filterCriteriaAdded(){
     }
 
 
+    //appends the new filter to the filter criteria
     filterCriteria.push(newFilter);
 
 
     const filtersListDisplay = document.getElementById("criteria_filters");
 
+    //adds the new filter to be displayed on the page
     filtersListDisplay.appendChild(document.createElement("br"));
     filtersListDisplay.appendChild(document.createTextNode(  
         cleanTextForDisplay(newFilter["criteria"]) + " " 
@@ -136,6 +146,7 @@ function filterCriteriaAdded(){
 }
 
 
+ //loads the search page using current user query
 function search(){
     let searchQuery = "";
     for(let i = 0; i < filterCriteria.length; i++){
@@ -149,6 +160,7 @@ function search(){
     window.location.href = "./"+category+"/search/"+searchQuery;
 }
 
+//hopefully prevents sql injection & stuff breaking in general, probably still completely possible to do both of those things though
 function sanitizeUserInputForSearch(inp){
     return inp.toLowerCase().replaceAll(";","").replaceAll("+","").replaceAll("&","").replaceAll(" ","+");
 }

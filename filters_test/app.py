@@ -3,6 +3,7 @@ import psycopg2
 
 app = Flask(__name__)
 
+
 #returns connection to database
 def connect():
     return psycopg2.connect(
@@ -11,6 +12,7 @@ def connect():
         database="honga2",
         user="bremerj",
         password="tree288cow")
+
 
 #returns a dictionary with the column names and data types of each column
 def get_all_columns(db):
@@ -33,10 +35,14 @@ def get_all_columns(db):
         "columnDataTypes" : columnDataTypes
     }
 
+
+#redirects from index to filter 
 @app.route('/')
 def index():
     return redirect(url_for("filters_test", category="starships"))
 
+
+#loads main filtering page, with criteria options and datatypes
 @app.route('/filter/<category>')
 def filters_test(category):
     allColumns = get_all_columns(category);
@@ -48,6 +54,7 @@ def filters_test(category):
     return render_template("filters_test.html", data=data, category=category)
 
 
+#search page for filter - "search" variable is all of the criteria/filtering types/values seperated by ampersands
 @app.route('/filter/<category>/search/<search>')
 def filters_test_search(category,search):
     searchTerms = search.split("&")
@@ -67,6 +74,7 @@ def filters_test_search(category,search):
 
         searchQuery = ""
 
+        #sql query depends on types of filters applied
         if(searchTerm_criteria_filter == "filter_real_is"):
             searchQuery = searchTerm_criteria + " = " + searchTerm_value
         elif(searchTerm_criteria_filter == "filter_real_greaterThan"):
@@ -82,6 +90,7 @@ def filters_test_search(category,search):
         elif(searchTerm_criteria_filter == "filter_text_endsWith"):
             searchQuery = "UPPER(" + searchTerm_criteria + ") LIKE '%" + searchTerm_value + "'"
 
+        #adds this part of the query to full sql query
         sqlQuery += searchQuery
 
     sqlQuery += ";"

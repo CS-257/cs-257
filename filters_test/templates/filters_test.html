@@ -10,6 +10,7 @@
   </head>
   <body>
     <script>
+        //moves variables from python to js
         var criteriaOptions = "{{ data.criteriaOptions }}";
         var criteriaOptions_dataTypes = "{{ data.criteriaOptions_dataTypes }}";
         var category = "{{category}}";
@@ -36,7 +37,6 @@
     <div id="criteria_filter_options">
         <div id="criteria_filter_options_real" class="criteria_filter_options" style="display: none;">
             <select id="criteria_filter_options_dropdown_real">
-              <!--<option value="filter_real_closeTo">Close To</option>-->
               <option value="filter_real_greaterThan">Greater Than</option>
               <option value="filter_real_lessThan">Less Than</option>
               <option value="filter_real_is">Is</option>
@@ -47,7 +47,6 @@
 
         <div id="criteria_filter_options_text" class="criteria_filter_options" style="display: none;">
             <select id="criteria_filter_options_dropdown_text">
-              <!--<option value="filter_text_is">Is</option>-->
               <option value="filter_text_contains">Contains</option>
               <option value="filter_text_startsWith">Starts With</option>
               <option value="filter_text_endsWith">Ends With</option>
@@ -65,7 +64,7 @@
 
     <br>
 
-    <button type="button" onclick="location.reload();">Clear</button>
+    <button type="button" onclick="location.reload();">Clear</button> <!-- reloads page -->
 
     <br>
 
