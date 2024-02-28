@@ -12,6 +12,7 @@ def connect():
         user="bremerj",
         password="tree288cow")
 
+#returns a dictionary with the column names and data types of each column
 def get_all_columns(db):
     conn = connect()
     cur = conn.cursor()
@@ -34,7 +35,7 @@ def get_all_columns(db):
 
 @app.route('/')
 def index():
-    return redirect(url_for("filters_test"))
+    return redirect(url_for("filters_test", category="starships"))
 
 @app.route('/filter/<category>')
 def filters_test(category):
@@ -91,7 +92,7 @@ def filters_test_search(category,search):
     cur.execute( sqlQuery )
     data = cur.fetchall();
 
-    return sqlQuery + "\n" + str(data);
+    return str(data);
 
 if __name__ == '__main__':
     my_port = 5122
