@@ -91,7 +91,7 @@ def filters_test_search(category,search):
     cur.execute( sqlQuery )
     data = cur.fetchall();
 
-    return data;
+    return sqlQuery + str(data);
 
 if __name__ == '__main__':
     my_port = 5122
