@@ -140,8 +140,9 @@ function search(){
     let searchQuery = "";
     for(let i = 0; i < filterCriteria.length; i++){
         let criteria = filterCriteria[i];
-        if(i != 0):
+        if(i != 0){
             searchQuery += "&"
+        }
         searchQuery += criteria["criteria"]+"&"+criteria["criteria_filter"]+"&"+criteria["value"];
     }
 
