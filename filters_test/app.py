@@ -34,7 +34,7 @@ def get_all_columns(db):
 
 @app.route('/')
 def index():
-    return redirect(url_for("filters_test"), category='starships')
+    return redirect(url_for("filters_test"))
 
 @app.route('/filter/<category>')
 def filters_test(category):
@@ -52,7 +52,7 @@ def filters_test_search(category,search):
     searchTerms = search.split("-")
 
     if(len(searchTerms) % 3 != 0):
-        return; #if there are the wrong number of search terms, something has gone wrong / user error
+        return "WRONG NUMBER OF TERMS"; #if there are the wrong number of search terms, something has gone wrong / user error
 
     sqlQuery = "SELECT name FROM " + category + " WHERE "
 
@@ -91,7 +91,7 @@ def filters_test_search(category,search):
     cur.execute( sqlQuery )
     data = cur.fetchall();
 
-    return data
+    return data;
 
 if __name__ == '__main__':
     my_port = 5122
