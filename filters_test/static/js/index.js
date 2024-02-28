@@ -140,7 +140,9 @@ function search(){
     let searchQuery = "";
     for(let i = 0; i < filterCriteria.length; i++){
         let criteria = filterCriteria[i];
-        searchQuery += "-"+criteria["criteria"]+"-"+criteria["criteria_filter"]+"-"+criteria["value"];
+        if(i != 0):
+            searchQuery += "-"
+        searchQuery += criteria["criteria"]+"-"+criteria["criteria_filter"]+"-"+criteria["value"];
     }
 
     window.location.href = "./"+category+"/search/"+searchQuery;
