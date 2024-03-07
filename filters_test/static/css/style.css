@@ -1,3 +1,7 @@
+#filter_category_title {
+    text-transform: uppercase;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 30;
