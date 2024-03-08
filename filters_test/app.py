@@ -95,14 +95,13 @@ def filters_test_search(category,search):
 
     sqlQuery += ";"
 
-    #conn = connect()
-    #cur = conn.cursor()
+    conn = connect()
+    cur = conn.cursor()
 
-    #cur.execute( sqlQuery )
-    #data = cur.fetchall()
+    cur.execute( sqlQuery )
+    data = cur.fetchall()
 
-    # return str(data)
-    return sqlQuery
+    return str(data)
 
 if __name__ == '__main__':
     my_port = 5122

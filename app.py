@@ -1,5 +1,4 @@
 from flask import Flask, render_template, jsonify, request
-import api
 import argparse
 import psycopg2
 
