@@ -90,20 +90,19 @@ def filters_test_search(category,search):
         elif(searchTerm_criteria_filter == "filter_text_endsWith"):
             searchQuery = "UPPER(" + searchTerm_criteria + ") LIKE '%" + searchTerm_value + "'"
 
-        print(searchQuery)
-
         #adds this part of the query to full sql query
         sqlQuery += searchQuery
 
     sqlQuery += ";"
 
-    conn = connect()
-    cur = conn.cursor()
+    #conn = connect()
+    #cur = conn.cursor()
 
-    cur.execute( sqlQuery )
-    data = cur.fetchall();
+    #cur.execute( sqlQuery )
+    #data = cur.fetchall()
 
-    return str(data);
+    # return str(data)
+    return sqlQuery
 
 if __name__ == '__main__':
     my_port = 5122
