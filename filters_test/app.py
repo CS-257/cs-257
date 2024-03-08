@@ -70,7 +70,7 @@ def filters_test_search(category,search):
 
         searchTerm_criteria = "\""+searchTerms[i]+"\""
         searchTerm_criteria_filter = searchTerms[i+1]
-        searchTerm_value = "\""+searchTerms[i+2].upper()+"\""
+        searchTerm_value = searchTerms[i+2].upper()
 
         searchQuery = ""
 
@@ -89,6 +89,8 @@ def filters_test_search(category,search):
             searchQuery = "UPPER(" + searchTerm_criteria + ") LIKE '" + searchTerm_value + "%'"
         elif(searchTerm_criteria_filter == "filter_text_endsWith"):
             searchQuery = "UPPER(" + searchTerm_criteria + ") LIKE '%" + searchTerm_value + "'"
+
+        print(searchQuery)
 
         #adds this part of the query to full sql query
         sqlQuery += searchQuery
