@@ -68,9 +68,9 @@ def filters_test_search(category,search):
         if(i != 0):
             sqlQuery += " AND "
 
-        searchTerm_criteria = searchTerms[i]
+        searchTerm_criteria = "\""+searchTerms[i]+"\""
         searchTerm_criteria_filter = searchTerms[i+1]
-        searchTerm_value = searchTerms[i+2].upper()
+        searchTerm_value = "\""+searchTerms[i+2].upper()+"\""
 
         searchQuery = ""
 
