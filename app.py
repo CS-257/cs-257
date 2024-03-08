@@ -27,11 +27,25 @@ def connect_to_db():
 def home():
     return render_template('home_page.html')
 
-
 @app.route('/characters/')
 def characters():
     return render_template('characters.html')
 
+@app.route('/species/')
+def species():
+    return render_template('species.html')
+
+@app.route('/starships/')
+def starships():
+    return render_template('starships.html')
+
+@app.route('/planets/')
+def planets():
+    return render_template('planets.html')
+
+@app.route('/vehicles/')
+def vehicles():
+    return render_template('vehicles.html')
 
 # Define a route to handle the request for character information
 @app.route('/characters-info', methods=['POST'])
@@ -59,10 +73,92 @@ def characters_info():
         # Handle any exceptions that occur during processing
         return jsonify({'error': str(e)}), 500
 
+# Define a route to handle the request for species information
+@app.route('/species-info', methods=['POST'])
+def species_info():
+    try:
+
+        # Extract species name from request
+        request_data = request.get_json()
+        species_name = request_data.get('species')
+
+        # Query the database for species information
+        conn = connect_to_db()
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM species WHERE name = %s", (species_name,))
+        species_info = cursor.fetchone()
+        cursor.close()
+        conn.close()
+
+        if species_info:
+            # If species information is found, return it as JSON
+            return jsonify(species_info)
+        else:
+            # If species not found, return appropriate response
+            return jsonify({'error': 'Species not found'}), 404
+    except Exception as e:
+        # Handle any exceptions that occur during processing
+        return jsonify({'error': str(e)}), 500
+
+# Define a route to handle the request for starships information
+@app.route('/starships-info', methods=['POST'])
+def starships_info():
+    try:
+
+        # Extract starships name from request
+        request_data = request.get_json()
+        starships_name = request_data.get('starships')
+
+        # Query the database for starships information
+        conn = connect_to_db()
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM starships WHERE name = %s", (starships_name,))
+        starships_info = cursor.fetchone()
+        cursor.close()
+        conn.close()
+
+        if starships_info:
+            # If starships information is found, return it as JSON
+            return jsonify(starships_info)
+        else:
+            # If starships not found, return appropriate response
+            return jsonify({'error': 'Starships not found'}), 404
+    except Exception as e:
+        # Handle any exceptions that occur during processing
+        return jsonify({'error': str(e)}), 500
+
+
+# Define a route to handle the request for vehicles information
+@app.route('/vehicles-info', methods=['POST'])
+def vehicles_info():
+    try:
+
+        # Extract vehicles name from request
+        request_data = request.get_json()
+        vehicles_name = request_data.get('vehicles')
+
+        # Query the database for starships information
+        conn = connect_to_db()
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM vehicles WHERE name = %s", (vehicles_name,))
+        vehicles_info = cursor.fetchone()
+        cursor.close()
+        conn.close()
+
+        if vehicles_info:
+            # If vehicles information is found, return it as JSON
+            return jsonify(vehicles_info)
+        else:
+            # If vehicles not found, return appropriate response
+            return jsonify({'error': 'Vehicles not found'}), 404
+    except Exception as e:
+        # Handle any exceptions that occur during processing
+        return jsonify({'error': str(e)}), 500
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('host', help='the host server that this application runs on')
     parser.add_argument('port', help='the port that this application listens on')
     arguments = parser.parse_args()
-    app.run(host=arguments.host, port=arguments.port, debug=True)  
+    app.run(host=arguments.host, port=arguments.port, debug=True) 
