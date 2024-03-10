@@ -6,6 +6,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     buildCategoryElementList(category,'search-list') // Generates list of category elements
     
+    /*
     // Add the 'click' event listener to handle any 'click' action from user
     charactersList.addEventListener('click', function(event) {
 
@@ -21,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
 
-    /*
+    
     // Get the search input item from the HTML doc 
     var searchInput = document.getElementById('search');
 
@@ -57,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
 //then adds these names to the display as list elements
 function buildCategoryElementList(fetchingFromCategory,htmlListID) {
 
-    fetch('/characters-info', {
+    fetch('/fetch-category-element-names', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
