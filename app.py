@@ -67,7 +67,7 @@ def fetch_category_element_names():
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('host', help='the host server that this application runs on')g
+    parser.add_argument('host', help='the host server that this application runs on')
     parser.add_argument('port', help='the port that this application listens on')
     arguments = parser.parse_args()
     app.run(host=arguments.host, port=arguments.port, debug=True) 
