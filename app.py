@@ -27,7 +27,7 @@ def home():
     return render_template('home_page.html')
 
 @app.route('/search/<category>')
-def vehicles():
+def search_category(category):
     return render_template('category_search_page.html')
 
 # Define a route to handle the request for character information
