@@ -49,6 +49,8 @@ def fetch_category_element_names():
         cursor.close()
         conn.close()
 
+        print(info, file=sys.stdout)
+
         if info:
             return jsonify(info)
 
