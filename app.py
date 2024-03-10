@@ -1,6 +1,7 @@
 from flask import Flask, render_template, jsonify, request
 import argparse
 import psycopg2
+import sys
 
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
@@ -37,6 +38,8 @@ def fetch_category_element_names():
     try:
         request_data = request.get_json()
         category = request_data.get('fetch_from_category')
+
+        print(category, file=sys.stdout)
 
         # Query the database for species information
         conn = connect_to_db()
