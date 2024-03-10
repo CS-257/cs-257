@@ -39,17 +39,20 @@ def fetch_category_element_names():
         request_data = request.get_json()
         category = request_data.get('fetch_from_category')
 
-        print(category, file=sys.stdout)
+        print(category)
 
         # Query the database for species information
         conn = connect_to_db()
         cursor = conn.cursor()
+        print("still not broken???")
         cursor.execute("SELECT name FROM %s", (category,))
-        info = cursor.fetchall()
+        print("still not broken??!?!?!?!??")
+        info = cursor.fetchone()
+        print(info)
         cursor.close()
         conn.close()
 
-        print(info, file=sys.stdout)
+        print(info)
 
         if info:
             return jsonify(info)
@@ -64,7 +67,7 @@ def fetch_category_element_names():
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('host', help='the host server that this application runs on')
+    parser.add_argument('host', help='the host server that this application runs on')g
     parser.add_argument('port', help='the port that this application listens on')
     arguments = parser.parse_args()
     app.run(host=arguments.host, port=arguments.port, debug=True) 
