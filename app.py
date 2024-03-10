@@ -26,25 +26,9 @@ def connect_to_db():
 def home():
     return render_template('home_page.html')
 
-@app.route('/characters/')
-def characters():
-    return render_template('characters.html')
-
-@app.route('/species/')
-def species():
-    return render_template('species.html')
-
-@app.route('/starships/')
-def starships():
-    return render_template('starships.html')
-
-@app.route('/planets/')
-def planets():
-    return render_template('planets.html')
-
-@app.route('/vehicles/')
+@app.route('/search/<category>')
 def vehicles():
-    return render_template('vehicles.html')
+    return render_template('category_search_page.html')
 
 # Define a route to handle the request for character information
 @app.route('/characters-info', methods=['POST'])

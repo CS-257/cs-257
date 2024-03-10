@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Characters</title>
+    <link rel="stylesheet" href="../static/css/category_search_page.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Characters</h1>
+            <nav>
+                <ul>
+                    <a href="/starships" class="starships-button">Starships</a>
+                    <a href="/species" class="species-button">Species</a>
+                    <a href="/planets" class="planets-button">Planets</a>
+                    <a href="/vehicles" class="vehicles-button">Vehicles</a>
+                </ul>
+            </nav>
+        </div>
+        <a href="/" class="home-button" style="position: absolute; left:36.35cm; top:2.6cm;">Home</a>
+    </header>
+    <main>
+        <div class="container">
+            <input type="text" id="search" placeholder="Search...">
+	    <!-- <div id="characters-info-container"></div> -->
+            <div id="dropdown-container"></div>
+            <ul id="search-ist">
+                <!-- Static characters list -->
+                <li data-characters="TEMP">TEMP</li>
+
+                <!-- End of static species list -->
+            </ul>
+        </div>
+    </main>
+    <script src="../static/js/characters.js"></script>
+</body>
+</html>
