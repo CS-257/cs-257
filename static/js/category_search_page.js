@@ -50,45 +50,47 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });*/
+
+    //fetches names of all elements in a category (e.g. all species, all characters, etc.)
+    //then adds these names to the display as list elements
+    function buildCategoryElementList(fetchingFromCategory,htmlListID) {
+
+        fetch('/fetch-category-element-names', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                fetch_from_category : fetchingFromCategory
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Call function to display information
+            buildCategoryElementListHTML(data,htmlListID)
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+
+    }
+
+    //adds list elements to the page based on what's returned by the sql query
+    function buildCategoryElementListHTML(elements,htmlListID){
+        var elementsList = document.getElementById('search-list'); // Gets list element
+
+        for(let i = 0; i < elements.length; i++){
+            let element = elements[i];
+
+            let entry = document.createElement('li');
+            entry.value = element;
+            entry.appendChild(document.createTextNode(element));
+        
+            elementsList.appendChild(entry);
+        }
+    }
 });
 
 
 
-//fetches names of all elements in a category (e.g. all species, all characters, etc.)
-//then adds these names to the display as list elements
-function buildCategoryElementList(fetchingFromCategory,htmlListID) {
 
-    fetch('/fetch-category-element-names', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            fetch_from_category : fetchingFromCategory
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Call function to display information
-        buildCategoryElementListHTML(data,htmlListID)
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-
-}
-
-//adds list elements to the page based on what's returned by the sql query
-function buildCategoryElementListHTML(elements,htmlListID){
-    var elementsList = document.getElementById('search-list'); // Gets list element
-
-    for(let i = 0; i < elements.length; i++){
-        let element = elements[i];
-
-        let entry = document.createElement('li');
-        entry.value = element;
-        entry.appendChild(document.createTextNode(element));
-        
-        elementsList.appendChild(entry);
-    }
-}
