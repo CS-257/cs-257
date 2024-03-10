@@ -4,7 +4,7 @@
 
 // Wait until DOM content loaded
 document.addEventListener('DOMContentLoaded', function() {
-    buildCategoryElementList(category,'search-list'))// Generates list of category elements
+    buildCategoryElementList(category,'search-list') // Generates list of category elements
     
     // Add the 'click' event listener to handle any 'click' action from user
     charactersList.addEventListener('click', function(event) {
