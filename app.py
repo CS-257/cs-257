@@ -149,9 +149,9 @@ def check_if_filter_applies():
         for criterion in criteria:
             sqlQuery += " AND "
 
-            searchTerm_criteria = "\""+criterion.criteria+"\""
-            searchTerm_criteria_filter = criterion.criteria_filter
-            searchTerm_value = criterion.value.upper()
+            searchTerm_criteria = "\""+criterion.get("criteria")+"\""
+            searchTerm_criteria_filter = criterion.get("criteria_filter")
+            searchTerm_value = criterion.get("value").upper()
 
             searchQuery = ""
 
