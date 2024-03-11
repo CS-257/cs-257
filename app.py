@@ -67,6 +67,13 @@ def element_info():
         category = request_data.get('fetch_from_category')
         element = request_data.get('fetch_element')
 
+        print("GETTING ELEMENT INFO FROM")
+        print(category)
+        print("ELEMENT BEING")
+        print(element)
+        print("QUERY BEING")
+        print("SELECT * FROM " + category + " WHERE name = " + element)
+
         # Query the database
         conn = connect_to_db()
         cursor = conn.cursor()
@@ -74,6 +81,8 @@ def element_info():
         info = cursor.fetchone()
         cursor.close()
         conn.close()
+
+        print("QUERY SUCCESS!")
 
 
         if info:
