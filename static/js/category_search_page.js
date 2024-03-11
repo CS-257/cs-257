@@ -102,9 +102,9 @@ function addEventListenersToElementList(elementsList){
         // Check if the clicked element is a list type
         if (event.target.tagName === 'LI') {
 
-            let elementName = event.target.value;
+            let elementName = event.target;
             console.log(elementName)
-            toggleElementInformation(charactersName, event.target);
+            toggleElementInformation(elementName, event.target);
 
         }
 
