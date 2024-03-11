@@ -80,7 +80,7 @@ function buildCategoryElementListHTML(elements,elementsList){
         let element = elements[i];
 
         let entry = document.createElement('li');
-        entry.value = 80085;//element;
+        entry.value = element.toString();
         entry.appendChild(document.createTextNode(element));
         
         elementsList.appendChild(entry);
