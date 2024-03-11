@@ -23,13 +23,53 @@ def connect_to_db():
         print("Error connecting to database:", e)
 
 
+
+
+
+
+
 @app.route('/')
 def home():
     return render_template('home_page.html')
 
+
 @app.route('/search/<category>')
 def search_category(category):
-    return render_template('category_search_page.html', category=category)
+
+    allColumns = get_all_columns(category);
+    data = {
+        "criteriaOptions" : allColumns["columns"], 
+        "criteriaOptions_dataTypes" : allColumns["columnDataTypes"]
+    }
+
+    return render_template('category_search_page.html', category=category, data=data)
+
+
+
+
+
+
+
+#returns a dictionary with the column names and data types of each column
+def get_all_columns(db):
+    conn = connect_to_db()
+    cur = conn.cursor()
+
+    sql = "SELECT column_name, data_type FROM information_schema.columns WHERE table_schema = 'public' AND table_name = %s;"
+    cur.execute( sql, [db] )
+    data = cur.fetchall();
+
+    columns = []
+    columnDataTypes = []
+
+    for column in data:
+        columns.append(str(column[0]))
+        columnDataTypes.append(str(column[1]))
+
+    return { 
+        "columns" : columns,
+        "columnDataTypes" : columnDataTypes
+    }
 
 
 # Define a route to handle the request for character information
@@ -67,13 +107,6 @@ def element_info():
         category = request_data.get('fetch_from_category')
         element = request_data.get('fetch_element')
 
-        print("GETTING ELEMENT INFO FROM")
-        print(category)
-        print("ELEMENT BEING")
-        print(element)
-        print("QUERY BEING")
-        print("SELECT * FROM " + category + " WHERE name = '" + element + "'")
-
         # Query the database
         conn = connect_to_db()
         cursor = conn.cursor()
@@ -81,9 +114,6 @@ def element_info():
         info = cursor.fetchone()
         cursor.close()
         conn.close()
-
-        print("QUERY SUCCESS!")
-
 
         if info:
             return jsonify(info)
