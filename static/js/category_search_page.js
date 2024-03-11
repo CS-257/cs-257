@@ -2,11 +2,10 @@
 //var category
 
 var searchInput = document.getElementById('search');
+var elementsList = document.getElementById('search-list'); // Gets list element
 
 // Wait until DOM content loaded
 document.addEventListener('DOMContentLoaded', function() {
-    var elementsList = document.getElementById('search-list'); // Gets list element
-
     buildCategoryElementList(category, elementsList); // Generates list of category elements
 
     addEventListenersToElementList(category, elementsList); // adds event listeners for clicking on elements
@@ -365,7 +364,7 @@ function filterCriteriaAdded(){
         + newFilter["value"] 
     ));
 
-    search(searchInput,category);
+    search(searchInput,elementsList,category);
 }
 
 
