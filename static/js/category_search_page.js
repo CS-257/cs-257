@@ -199,7 +199,17 @@ function formatElementInformationForDisplay(fromCategory, info){
         break;
 
       case "planets":
-        formattedInfo = "FORMAT MISSING FOR PLANETS!! REPLACE IN CATEGORY_SEARCH_PAGE.JS"
+        formattedInfo = `
+            <p><strong>Name:</strong> ${info[0]}</p>
+            <p><strong>Rotation Period (Days):</strong> ${info[1]}</p>
+            <p><strong>Orbital Period (Days):</strong> ${info[2]}</p>
+            <p><strong>Diameter:</strong> ${info[3]}</p>
+            <p><strong>Climate:</strong> ${info[4]}</p>
+            <p><strong>Gravity (m/s/s):</strong> ${info[5]}</p>
+            <p><strong>Terrain:</strong> ${info[6]}</p>
+            <p><strong>Water Coverage (%):</strong> ${info[7]}</p>
+            <p><strong>Population:</strong> ${info[8]}</p>
+        `;
         break;
 
       case "vehicles":
@@ -207,8 +217,8 @@ function formatElementInformationForDisplay(fromCategory, info){
             <p><strong>Name:</strong> ${info[0]}</p>
             <p><strong>Model:</strong> ${info[1]}</p>
             <p><strong>Manufacturer:</strong> ${info[2]}</p>
-            <p><strong>Cost (credits):</strong> ${info[3]}</p>
-            <p><strong>Length (meters):</strong> ${info[4]}</p>
+            <p><strong>Cost (Credits):</strong> ${info[3]}</p>
+            <p><strong>Length (Meters):</strong> ${info[4]}</p>
             <p><strong>Max Atmosphering Speed (km/h):</strong> ${info[5]}</p>
             <p><strong>Crew:</strong> ${info[6]}</p>
             <p><strong>Passengers:</strong> ${info[7]}</p>
