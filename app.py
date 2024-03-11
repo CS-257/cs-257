@@ -140,22 +140,54 @@ def check_if_filter_applies():
         # get category and element name from request
         request_data = request.get_json()
         print(request_data)
-        #category = request_data.get('fetch_from_category')
-       # element = request_data.get('fetch_element')
+        category = request_data.get('fetch_from_category')
+        element = request_data.get('fetch_element')
+        criteria = request_data.get('fetch_by_criteria')
+
+        sqlQuery = "SELECT name FROM " + category + " WHERE name = '" + element + "'"
+
+        for criterion in criteria:
+            sqlQuery += " AND "
+
+            searchTerm_criteria = "\""+criterion.criteria+"\""
+            searchTerm_criteria_filter = criterion.criteria_filter
+            searchTerm_value = criterion.value.upper()
+
+            searchQuery = ""
+
+            #sql query depends on types of filters applied
+            if(searchTerm_criteria_filter == "filter_real_is"):
+                searchQuery = searchTerm_criteria + " = " + searchTerm_value
+            elif(searchTerm_criteria_filter == "filter_real_greaterThan"):
+                searchQuery = searchTerm_criteria + " > " + searchTerm_value
+            elif(searchTerm_criteria_filter == "filter_real_lessThan"):
+                searchQuery = searchTerm_criteria + " < " + searchTerm_value
+            elif(searchTerm_criteria_filter == "filter_text_is"):
+                searchQuery = searchTerm_criteria + " = '" + searchTerm_value + "'"
+            elif(searchTerm_criteria_filter == "filter_text_contains"):
+                searchQuery = "UPPER(" + searchTerm_criteria + ") LIKE '%" + searchTerm_value + "%'"
+            elif(searchTerm_criteria_filter == "filter_text_startsWith"):
+                searchQuery = "UPPER(" + searchTerm_criteria + ") LIKE '" + searchTerm_value + "%'"
+            elif(searchTerm_criteria_filter == "filter_text_endsWith"):
+                searchQuery = "UPPER(" + searchTerm_criteria + ") LIKE '%" + searchTerm_value + "'"
+
+            #adds this part of the query to full sql query
+            sqlQuery += searchQuery
+
 
         # Query the database
-        #conn = connect_to_db()
-        #cursor = conn.cursor()
-        #cursor.execute("SELECT * FROM " + category + " WHERE name = '" + element + "'")
-        #info = cursor.fetchone()
-        #cursor.close()
-        #conn.close()
+        conn = connect_to_db()
+        cursor = conn.cursor()
+        cursor.execute(sqlQuery)
+        info = cursor.fetchone()
+        cursor.close()
+        conn.close()
 
-        #if info:
-        return True
+        if info:
+            return jsonify({'result' : "true"})
 
-        #else:
-        #    return jsonify({'error': 'Element not found'}), 404
+        else:
+            return jsonify({'result' : "false"})
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500

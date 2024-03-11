@@ -383,17 +383,8 @@ async function search(searchInput,category,elementsList) {
         let isDisplayedInSearch = true;
 
         if(name_lower.includes(searchValue)){ // Check if the character name includes the search value
-            
-            if(filterCriteria.length > 0){ //if there are filters
-                filterCriteria.forEach(function(filterCriterion){
-
-                    if(!doesFilterApply(filterCriterion,name,category)){
-                        isDisplayedInSearch = false;
-                    }
-
-                })
-
-            }
+            isDisplayedInSearch = doesFilterApply(filterCriteria,name,category);
+        }
 
         } else {
 
@@ -420,8 +411,12 @@ async function search(searchInput,category,elementsList) {
     });
 }
 
-async function doesFilterApply(criterion,name,fetchingFromCategory) {
-    console.log(criterion);
+async function doesFilterApply(criteria,name,fetchingFromCategory) {
+    if(criteria.length <= 0){
+        return true;
+    }
+
+    console.log(criteria);
     console.log(name);
     console.log(fetchingFromCategory);
 
@@ -432,12 +427,14 @@ async function doesFilterApply(criterion,name,fetchingFromCategory) {
         },
         body: JSON.stringify({
             fetch_from_category : fetchingFromCategory,
-            fetch_name : name,
-            fetch_by_criterion : criterion
+            fetch_element : name,
+            fetch_by_criteria : criteria
         })
     });
 
     const json = await response.json();
 
-    return false;
+    console.log(json);
+
+    return true;
 }
