@@ -390,7 +390,6 @@ async function search(searchInput,category) {
 
                     if(!doesFilterApply(filterCriterion,name,category)){
                         isDisplayedInSearch = false;
-                        break;
                     }
 
                 })
