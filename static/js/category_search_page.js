@@ -11,16 +11,13 @@ document.addEventListener('DOMContentLoaded', function() {
     addEventListenersToElementList(category, elementsList); // adds event listeners for clicking on elements
     
     
-    
 
-    // Get the search input item from the HTML doc 
     var searchInput = document.getElementById('search');
 
-    // Add event listener for the search action 
     searchInput.addEventListener('input', function() {
         var searchValue = searchInput.value.toLowerCase();
-        // Get all items that are of type list from the page
-        var items = charactersList.querySelectorAll('li');
+
+        var items = elementsList.querySelectorAll('li');  // Get all items that are of type list from the page
 
         items.forEach(function(item) {
             var name = item.dataset.characters.toLowerCase();
