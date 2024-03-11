@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var items = elementsList.querySelectorAll('li');  // Get all items that are of type list from the page
 
         items.forEach(function(item) {
-            var name = item.dataset.characters.toLowerCase();
+            var name = item.dataset.elementName.toLowerCase();
             // Check if the character name includes the search value
             if (charactersName.includes(searchValue)) {
                 // If the character name matches the search value, show the list item
