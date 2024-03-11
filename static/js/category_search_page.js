@@ -384,8 +384,6 @@ async function search(searchInput,category,elementsList) {
 
         if(name_lower.includes(searchValue)){ // Check if the character name includes the search value
             isDisplayedInSearch = doesFilterApply(filterCriteria,name,category);
-        }
-
         } else {
 
             isDisplayedInSearch = false;
