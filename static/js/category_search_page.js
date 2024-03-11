@@ -371,7 +371,7 @@ function filterCriteriaAdded(){
 
 
  
-function search(searchInput,category,elementsList) {
+async function search(searchInput,category,elementsList) {
     let searchValue = searchInput.value.toLowerCase();
 
     let items = elementsList.querySelectorAll('li');  // Get all items that are of type list from the page
@@ -383,7 +383,7 @@ function search(searchInput,category,elementsList) {
         let isDisplayedInSearch = true;
 
         if(name_lower.includes(searchValue)){ // Check if the character name includes the search value
-            isDisplayedInSearch = doesFilterApply(filterCriteria,name,category);
+            isDisplayedInSearch = await doesFilterApply(filterCriteria,name,category);
         } else {
 
             isDisplayedInSearch = false;
