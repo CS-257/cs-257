@@ -411,7 +411,7 @@ function setListItemDisplayBasedOnFilters(item,criteria,name,fetchingFromCategor
     }).then(response => response.json())
     .then(data => {
 
-        if(response.result === "true"){
+        if(data.result === "true"){
             setListItemDisplay(item,true);
         } else {
             setListItemDisplay(item,false);
