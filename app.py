@@ -39,21 +39,14 @@ def fetch_category_element_names():
         request_data = request.get_json()
         category = request_data.get('fetch_from_category')
 
-        print(category)
-
         # Query the database for species information
         conn = connect_to_db()
         cursor = conn.cursor()
-        print("still not broken???")
-        print("SELECT name FROM " + category)
         cursor.execute("SELECT name FROM " + category)
-        print("still not broken??!?!?!?!??")
         info = cursor.fetchall()
-        print(info)
         cursor.close()
         conn.close()
 
-        print(info)
 
         if info:
             return jsonify(info)
