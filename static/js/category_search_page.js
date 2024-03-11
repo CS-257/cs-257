@@ -80,7 +80,7 @@ function buildCategoryElementListHTML(elements,elementsList){
         let element = elements[i];
 
         let entry = document.createElement('li');
-        entry.value = element;
+        entry.value = 80085;//element;
         entry.appendChild(document.createTextNode(element));
         
         elementsList.appendChild(entry);
@@ -114,7 +114,7 @@ function addEventListenersToElementList(elementsList){
 
 // check if info box exists for characters upon click, 
 //delete if so, build one if not
-function toggleElementInformation(name, targetElement) {
+function toggleElementInformation(elementName, targetElement) {
 
     // Grab the next item of the element that has been clicked
     var existingInfoBox = targetElement.nextElementSibling;
@@ -126,7 +126,7 @@ function toggleElementInformation(name, targetElement) {
 
     } else {
  
-        buildElementInfoBox(charactersName, targetElement);
+        buildElementInfoBox(elementName, targetElement);
 
     }
 }
