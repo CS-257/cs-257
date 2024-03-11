@@ -103,7 +103,7 @@ function addEventListenersToElementList(elementsList){
         if (event.target.tagName === 'LI') {
 
             let elementName = event.target.value;
-            debug(elementName)
+            console.log(elementName)
             toggleElementInformation(charactersName, event.target);
 
         }
