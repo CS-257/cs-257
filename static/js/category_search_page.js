@@ -80,7 +80,7 @@ function buildCategoryElementListHTML(elements,elementsList){
         let element = elements[i];
 
         let entry = document.createElement('li');
-        entry.value = element.toString();
+        entry.dataset.elementName = element;
         entry.appendChild(document.createTextNode(element));
         
         elementsList.appendChild(entry);
@@ -102,7 +102,7 @@ function addEventListenersToElementList(elementsList){
         // Check if the clicked element is a list type
         if (event.target.tagName === 'LI') {
 
-            let elementName = event.target;
+            let elementName = event.target.dataset.elementName;
             console.log(elementName)
             toggleElementInformation(elementName, event.target);
 
