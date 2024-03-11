@@ -29,7 +29,8 @@ header .container {
 .button {
     color: #fff;
     text-decoration: none;
-    padding: 10px;
+    padding: 8px;
+    margin: auto 4px;
     border: 1px solid #fff;
     border-radius: 5px;
     font-weight: bold;
@@ -38,27 +39,31 @@ header .container {
 .button:hover {
     background-color: #fff;
     color: #333;
-    transition: 0.4s;
+    transition: 0.15s;
+}
+
+.home-button {
+    float: right;
 }
 
 .characters-button {
-    color: purple;
+    color: #f3d1ff;
 }
 
 .species-button {
-    color: green;
+    color: #deffd1;
 }
 
 .planets-button {
-    color: orange;
+    color: #ffead1;
 }
 
 .vehicles-button {
-    color: red;
+    color: #ffd1d1;
 }
 
 .starships-button {
-    color: cyan;
+    color: #d1feff;
 }
 
 ul {
