@@ -371,7 +371,7 @@ function filterCriteriaAdded(){
 
 
  
-async function search(searchInput,category,elementsList) {
+function search(searchInput,category,elementsList) {
     let searchValue = searchInput.value.toLowerCase();
 
     let items = elementsList.querySelectorAll('li');  // Get all items that are of type list from the page
@@ -380,39 +380,18 @@ async function search(searchInput,category,elementsList) {
         const name = item.dataset.elementName;
         const name_lower = name.toLowerCase();
 
-        let isDisplayedInSearch = true;
-
         if(name_lower.includes(searchValue)){ // Check if the character name includes the search value
-            isDisplayedInSearch = await doesFilterApply(filterCriteria,name,category);
+            setListItemDisplayBasedOnFilters(item,filterCriteria,name,category,elementsList);
         } else {
-
-            isDisplayedInSearch = false;
-        }
-        
-        console.log(isDisplayedInSearch);
-        
-        if (isDisplayedInSearch) { 
-
-            item.style.display = 'block';
-
-        } else {
-
-            item.style.display = 'none';
-
-            // Check if there is an info box associated with the list item
-            let infoBox = item.nextElementSibling;
-            if (infoBox && infoBox.classList.contains('info-box')) {
-                // If an info box exists, remove it
-                infoBox.remove();
-            }
-
+            setListItemDisplay(item,false);
         }
     });
 }
 
-async function doesFilterApply(criteria,name,fetchingFromCategory) {
+//displays or hides an item in an element list based on provided criteria
+function setListItemDisplayBasedOnFilters(item,criteria,name,fetchingFromCategory, elementsList) {
     if(criteria.length <= 0){
-        return true;
+        setListItemDisplay(item,false);
     }
 
     console.log(criteria);
@@ -429,14 +408,38 @@ async function doesFilterApply(criteria,name,fetchingFromCategory) {
             fetch_element : name,
             fetch_by_criteria : criteria
         })
+    }).then(response => response.json())
+    .then(data => {
+
+        if(response.result === "true"){
+            setListItemDisplay(item,true);
+        } else {
+            setListItemDisplay(item,false);
+        };
+
+    })
+    .catch(error => {
+        console.error('Error:', error);
     });
 
-    const json = await response.json();
+    
+}
 
-    console.log(json);
-    if(json.result === "true"){
-        return true;
+//displays or hides an item in an element list
+function setListItemDisplay(item,doDisplay) {
+    if (doDisplay) { 
+
+        item.style.display = 'block';
+
     } else {
-        return false;
-    };
+        item.style.display = 'none';
+
+        // Check if there is an info box associated with the list item
+        let infoBox = item.nextElementSibling;
+        if (infoBox && infoBox.classList.contains('info-box')) {
+            // If an info box exists, remove it
+            infoBox.remove();
+        }
+
+    }
 }
