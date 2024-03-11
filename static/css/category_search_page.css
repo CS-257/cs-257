@@ -5,7 +5,7 @@ body {
 }
 
 h1 {
-    text-transform: uppercase;
+    text-transform: capitalized;
 }
 
 .container {
@@ -26,7 +26,7 @@ header .container {
     justify-content: space-between;
 }
 
-.home-button {
+.button {
     color: #fff;
     text-decoration: none;
     padding: 10px;
@@ -35,88 +35,28 @@ header .container {
     font-weight: bold;
 }
 
-.home-button:hover {
+.button:hover {
     background-color: #fff;
     color: #333;
 }
 
 .characters-button {
-    background-color: #333;
-    color: cyan;
-    text-decoration: none;
-    padding: 10px 10px;
-    border: 1px solid #fff;
-    border-radius: 5px;
-    margin: 1px;
-    font-weight: bold;
-}
-
-.characters-button:hover {
-    background-color: #fff;
-    color: cyan;
+    color: purple;
 }
 
 .species-button {
-    background-color: #333;
-    color: green;
-    text-decoration: none;
-    padding: 10px 15px;
-    border: 1px solid #fff;
-    border-radius: 5px;
-    margin: 1px;
-    font-weight: bold;
-}
-
-.species-button:hover {
-    background-color: #fff;
     color: green;
 }
 
 .planets-button {
-    background-color: #333;
-    color: orange;
-    text-decoration: none;
-    padding: 10px 17px;
-    border: 1px solid #fff;
-    border-radius: 5px;
-    margin: 1px;
-    font-weight: bold;
-}
-
-.planets-button:hover {
-    background-color: #fff;
     color: orange;
 }
 
 .vehicles-button {
-    background-color: #333;
-    color: red;
-    text-decoration: none;
-    padding: 10px 15px;
-    border: 1px solid #fff;
-    border-radius: 5px;
-    margin: 1px;
-    font-weight: bold;
-}
-
-.vehicles-button:hover {
-    background-color: #fff;
     color: red;
 }
 
 .starships-button {
-    background-color: #333;
-    color: cyan;
-    text-decoration: none;
-    padding: 10px 10px;
-    border: 1px solid #fff;
-    border-radius: 5px;
-    margin: 1px;
-    font-weight: bold;
-}
-
-.starships-button:hover {
-    background-color: #fff;
     color: cyan;
 }
 
