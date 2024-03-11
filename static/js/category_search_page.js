@@ -430,9 +430,7 @@ async function doesFilterApply(criteria,name,fetchingFromCategory) {
         })
     });
 
-    const json = await response.json();
+    const response = await response.json();
 
-    console.log(json);
-
-    return true;
+    return (response.result == "true");
 }
