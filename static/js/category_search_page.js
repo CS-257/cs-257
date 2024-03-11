@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     
 
-    /*
     // Get the search input item from the HTML doc 
     var searchInput = document.getElementById('search');
 
@@ -21,10 +20,10 @@ document.addEventListener('DOMContentLoaded', function() {
     searchInput.addEventListener('input', function() {
         var searchValue = searchInput.value.toLowerCase();
         // Get all items that are of type list from the page
-        var charactersItems = charactersList.querySelectorAll('li');
+        var items = charactersList.querySelectorAll('li');
 
-        charactersItems.forEach(function(item) {
-            var charactersName = item.dataset.characters.toLowerCase();
+        items.forEach(function(item) {
+            var name = item.dataset.characters.toLowerCase();
             // Check if the character name includes the search value
             if (charactersName.includes(searchValue)) {
                 // If the character name matches the search value, show the list item
@@ -40,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         });
-    });*/
+    });
 });
 
 
