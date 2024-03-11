@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     loadCriteria(); // loads filter criteria into dropdowns
     
     searchInput.addEventListener('input', function() {
-        search(searchInput,category);
+        search(searchInput,category,elementsList);
     });
 });
 
@@ -372,7 +372,7 @@ function filterCriteriaAdded(){
 
 
  
-async function search(searchInput,category) {
+async function search(searchInput,category,elementsList) {
     let searchValue = searchInput.value.toLowerCase();
 
     let items = elementsList.querySelectorAll('li');  // Get all items that are of type list from the page
