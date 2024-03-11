@@ -364,7 +364,7 @@ function filterCriteriaAdded(){
         + newFilter["value"] 
     ));
 
-    search(searchInput,elementsList,category);
+    search(searchInput,category,elementsList);
 }
 
 
