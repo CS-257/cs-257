@@ -389,6 +389,7 @@ function search(searchInput,category,elementsList) {
             isDisplayedInSearch = false;
         }
         
+        console.log(isDisplayedInSearch);
         
         if (isDisplayedInSearch) { 
 
