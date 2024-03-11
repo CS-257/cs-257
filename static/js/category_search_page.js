@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         items.forEach(function(item) {
             var name = item.dataset.elementName.toLowerCase();
             // Check if the character name includes the search value
-            if (charactersName.includes(searchValue)) {
+            if (name.includes(searchValue)) {
                 // If the character name matches the search value, show the list item
                 item.style.display = 'block';
             } else {
