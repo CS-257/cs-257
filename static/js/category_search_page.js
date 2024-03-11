@@ -432,5 +432,10 @@ async function doesFilterApply(criteria,name,fetchingFromCategory) {
 
     const json = await response.json();
 
-    return (json.result == "true");
+    console.log(json);
+    if(json.result === "true"){
+        return true;
+    } else {
+        return false;
+    };
 }
