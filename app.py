@@ -98,6 +98,11 @@ def fetch_category_element_names():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+
+
+
+
+
 # Define a route to handle the request for element information
 @app.route('/element-info', methods=['POST'])
 def element_info():
@@ -123,6 +128,40 @@ def element_info():
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+
+
+
+
+
+# Define a route to handle filter checks
+@app.route('/check-if-filter-applies', methods=['POST'])
+def check_if_filter_applies():
+    try:
+        # get category and element name from request
+        request_data = request.get_json()
+        print(request_data)
+        #category = request_data.get('fetch_from_category')
+       # element = request_data.get('fetch_element')
+
+        # Query the database
+        #conn = connect_to_db()
+        #cursor = conn.cursor()
+        #cursor.execute("SELECT * FROM " + category + " WHERE name = '" + element + "'")
+        #info = cursor.fetchone()
+        #cursor.close()
+        #conn.close()
+
+        #if info:
+        return True
+
+        #else:
+        #    return jsonify({'error': 'Element not found'}), 404
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+
+
 
 
 if __name__ == '__main__':

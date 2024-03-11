@@ -1,6 +1,7 @@
 //VARIABLES CREATED
 //var category
 
+var searchInput = document.getElementById('search');
 
 // Wait until DOM content loaded
 document.addEventListener('DOMContentLoaded', function() {
@@ -12,31 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     loadCriteria(); // loads filter criteria into dropdowns
     
-
-    var searchInput = document.getElementById('search');
-
     searchInput.addEventListener('input', function() {
-        var searchValue = searchInput.value.toLowerCase();
-
-        var items = elementsList.querySelectorAll('li');  // Get all items that are of type list from the page
-
-        items.forEach(function(item) {
-            var name = item.dataset.elementName.toLowerCase();
-            // Check if the character name includes the search value
-            if (name.includes(searchValue)) {
-                // If the character name matches the search value, show the list item
-                item.style.display = 'block';
-            } else {
-                // If the character name does not match the search value, hide the list item
-                item.style.display = 'none';
-                // Check if there is an info box associated with the list item
-                var infoBox = item.nextElementSibling;
-                if (infoBox && infoBox.classList.contains('info-box')) {
-                    // If an info box exists, remove it
-                    infoBox.remove();
-                }
-            }
-        });
+        search(searchInput,category);
     });
 });
 
@@ -386,4 +364,82 @@ function filterCriteriaAdded(){
         + criteriaTypesToDisplay[newFilter["criteria_filter"]] + " " 
         + newFilter["value"] 
     ));
+
+    search(searchInput,category);
+}
+
+
+
+
+ 
+async function search(searchInput,category) {
+    let searchValue = searchInput.value.toLowerCase();
+
+    let items = elementsList.querySelectorAll('li');  // Get all items that are of type list from the page
+
+    items.forEach(function(item) {
+        const name = item.dataset.elementName;
+        const name_lower = name.toLowerCase();
+
+        let isDisplayedInSearch = true;
+
+        if(name_lower.includes(searchValue)){ // Check if the character name includes the search value
+            
+            if(filterCriteria.length > 0){ //if there are filters
+                filterCriteria.forEach(function(filterCriterion){
+
+                    if(!doesFilterApply(filterCriterion,name,category)){
+                        isDisplayedInSearch = false;
+                        break;
+                    }
+
+                })
+
+            }
+
+        } else {
+
+            isDisplayedInSearch = false;
+        }
+        
+        
+        if (isDisplayedInSearch) { 
+
+            item.style.display = 'block';
+
+        } else {
+
+            item.style.display = 'none';
+
+            // Check if there is an info box associated with the list item
+            let infoBox = item.nextElementSibling;
+            if (infoBox && infoBox.classList.contains('info-box')) {
+                // If an info box exists, remove it
+                infoBox.remove();
+            }
+
+        }
+    });
+}
+
+async function doesFilterApply(criterion,name,fetchingFromCategory) {
+    debug.log(criterion);
+    debug.log(name);
+    debug.log(fetchingFromCategory);
+
+    const response = await fetch('/check-if-filter-applies', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            fetch_from_category : fetchingFromCategory,
+            fetch_name : name,
+            fetch_by_criterion : criterion
+        })
+    });
+
+    const json = await response.json();
+
+    return false;
 }
