@@ -398,7 +398,7 @@ function setListItemDisplayBasedOnFilters(item,criteria,name,fetchingFromCategor
     console.log(name);
     console.log(fetchingFromCategory);
 
-    const response = await fetch('/check-if-filter-applies', {
+    fetch('/check-if-filter-applies', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
