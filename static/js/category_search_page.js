@@ -164,7 +164,7 @@ function displayElementInformation(fromCategory, elementInfo, targetListElement)
     infoBox.innerHTML = formatElementInformationForDisplay(fromCategory, elementInfo); // Set the HTML content of the info box to the formatted character information
 
     //Insert the info box after the target element
-    targetElement.insertAdjacentElement('afterend', infoBox);
+    targetListElement.insertAdjacentElement('afterend', infoBox);
 }
 
 function formatElementInformationForDisplay(fromCategory, info){
