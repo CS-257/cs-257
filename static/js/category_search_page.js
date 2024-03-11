@@ -205,7 +205,7 @@ function formatElementInformationForDisplay(fromCategory, info){
             <p><strong>Orbital Period (Days):</strong> ${info[2]}</p>
             <p><strong>Diameter:</strong> ${info[3]}</p>
             <p><strong>Climate:</strong> ${info[4]}</p>
-            <p><strong>Gravity (m/s/s):</strong> ${info[5]}</p>
+            <p><strong>Gravity:</strong> ${info[5]}</p>
             <p><strong>Terrain:</strong> ${info[6]}</p>
             <p><strong>Water Coverage (%):</strong> ${info[7]}</p>
             <p><strong>Population:</strong> ${info[8]}</p>
