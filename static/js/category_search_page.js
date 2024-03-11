@@ -421,9 +421,9 @@ async function search(searchInput,category,elementsList) {
 }
 
 async function doesFilterApply(criterion,name,fetchingFromCategory) {
-    debug.log(criterion);
-    debug.log(name);
-    debug.log(fetchingFromCategory);
+    console.log(criterion);
+    console.log(name);
+    console.log(fetchingFromCategory);
 
     const response = await fetch('/check-if-filter-applies', {
         method: 'POST',
