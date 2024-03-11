@@ -45,6 +45,7 @@ def fetch_category_element_names():
         conn = connect_to_db()
         cursor = conn.cursor()
         print("still not broken???")
+        print("SELECT name FROM " + category)
         cursor.execute("SELECT name FROM %s", (category,))
         print("still not broken??!?!?!?!??")
         info = cursor.fetchone()
