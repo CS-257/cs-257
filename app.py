@@ -82,7 +82,7 @@ def fetch_category_element_names():
         # Query the database
         conn = connect_to_db()
         cursor = conn.cursor()
-        cursor.execute("SELECT name FROM " + category " ORDER BY name")
+        cursor.execute("SELECT name FROM " + category + " ORDER BY name")
         info = cursor.fetchall()
         cursor.close()
         conn.close()
