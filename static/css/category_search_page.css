@@ -43,7 +43,9 @@ header .container {
 }
 
 .home-button {
-    float: right;
+    position: absolute; 
+    left: 36.35cm; 
+    top: 2.6cm;
 }
 
 .characters-button {

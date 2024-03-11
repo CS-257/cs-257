@@ -39,7 +39,7 @@ def fetch_category_element_names():
         request_data = request.get_json()
         category = request_data.get('fetch_from_category')
 
-        # Query the database for species information
+        # Query the database
         conn = connect_to_db()
         cursor = conn.cursor()
         cursor.execute("SELECT name FROM " + category)
@@ -54,6 +54,33 @@ def fetch_category_element_names():
         else:
             # Error if category not found
             return jsonify({'error': 'Category not found'}), 404
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+# Define a route to handle the request for element information
+@app.route('/element-info', methods=['POST'])
+def element_info():
+    try:
+        # get category and element name from request
+        request_data = request.get_json()
+        category = request_data.get('fetch_from_category')
+        element = request_data.get('fetch_element')
+
+        # Query the database
+        conn = connect_to_db()
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM " + category + " WHERE name = " + element)
+        info = cursor.fetchone()
+        cursor.close()
+        conn.close()
+
+
+        if info:
+            return jsonify(info)
+
+        else:
+            return jsonify({'error': 'Element not found'}), 404
 
     except Exception as e:
         return jsonify({'error': str(e)}), 500

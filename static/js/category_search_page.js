@@ -6,9 +6,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     var elementsList = document.getElementById('search-list'); // Gets list element
 
-    buildCategoryElementList(category,elementsList); // Generates list of category elements
+    buildCategoryElementList(category, elementsList); // Generates list of category elements
 
-    addEventListenersToElementList(elementsList); // adds event listeners for clicking on elements
+    addEventListenersToElementList(category, elementsList); // adds event listeners for clicking on elements
     
     
     
@@ -95,7 +95,7 @@ function buildCategoryElementListHTML(elements,elementsList){
 
 
 //adds click event listeners to element list
-function addEventListenersToElementList(elementsList){
+function addEventListenersToElementList(category, elementsList){
 
     elementsList.addEventListener('click', function(event) {
 
@@ -104,7 +104,7 @@ function addEventListenersToElementList(elementsList){
 
             let elementName = event.target.dataset.elementName;
             console.log(elementName)
-            toggleElementInformation(elementName, event.target);
+            toggleElementInformation(category, elementName, event.target);
 
         }
 
@@ -114,7 +114,7 @@ function addEventListenersToElementList(elementsList){
 
 // check if info box exists for characters upon click, 
 //delete if so, build one if not
-function toggleElementInformation(elementName, targetElement) {
+function toggleElementInformation(fromCategory, elementName, targetElement) {
 
     // Grab the next item of the element that has been clicked
     var existingInfoBox = targetElement.nextElementSibling;
@@ -126,21 +126,21 @@ function toggleElementInformation(elementName, targetElement) {
 
     } else {
  
-        buildElementInfoBox(elementName, targetElement);
+        buildElementInfoBox(fromCategory, elementName, targetElement);
 
     }
 }
 
-
 // builds info box
-function buildElementInfoBox(category, elementName, targetListElement) {
-    fetch('/characters-info', {
+function buildElementInfoBox(fromCategory, elementName, targetListElement) {
+    fetch('/element-info', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            element: elementName
+            fetch_from_category: fromCategory,
+            fetch_element: elementName
         })
     })
     .then(response => response.json())
