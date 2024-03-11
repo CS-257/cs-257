@@ -27,9 +27,14 @@
         <div class="container">
             <input type="text" id="search" placeholder="Search...">
 	        
+            <br>
+            <br>
+
             <select onchange="filterCriteriaSelected();" name="Criteria" id="criteria_filter_selector">
                 <option selected disabled value> -- Select a Criteria -- </option>
             </select>
+
+            <br>
 
             <div id="criteria_filter_options">
                 <div id="criteria_filter_options_real" class="criteria_filter_options" style="display: none;">
@@ -53,11 +58,21 @@
                 </div>
             </div>
 
+            <br>
+
             <button type="button" onclick="filterCriteriaAdded();">Add Filter</button>
+
+            <br>
+            <br>
+
+            <button type="button" onclick="location.reload();">Clear</button>
 
             <br>
 
             <div id="criteria_filters"></div>
+
+            <br>
+            <br>
 
             <div id="dropdown-container"></div>
                 <ul id="search-list">
