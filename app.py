@@ -48,7 +48,7 @@ def fetch_category_element_names():
         print("SELECT name FROM " + category)
         cursor.execute("SELECT name FROM " + category)
         print("still not broken??!?!?!?!??")
-        info = cursor.fetchone()
+        info = cursor.fetchall()
         print(info)
         cursor.close()
         conn.close()
