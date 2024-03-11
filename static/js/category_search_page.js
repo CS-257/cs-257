@@ -146,7 +146,7 @@ function buildElementInfoBox(fromCategory, elementName, targetListElement) {
     .then(response => response.json())
     .then(data => {
 
-        displayElementInformation(data, targetListElement);
+        displayElementInformation(fromCategory, data, targetListElement);
 
     })
     .catch(error => {
@@ -155,29 +155,91 @@ function buildElementInfoBox(fromCategory, elementName, targetListElement) {
 }
 
 // Function to display character information upon toggle
-function displayElementInformation(elementInfo, targetListElement) {
-
-    // Create a formatted string with the information
-    var formattedInfo = `
-        <p><strong>Name:</strong> ${charactersInfo[0]}</p>
-        <p><strong>Height:</strong> ${charactersInfo[1]}</p>
-        <p><strong>Mass:</strong> ${charactersInfo[2]}</p>
-        <p><strong>Skin Color:</strong> ${charactersInfo[3]}</p>
-        <p><strong>Hair Color:</strong> ${charactersInfo[4]}</p>
-        <p><strong>Eye Color:</strong> ${charactersInfo[5]}</p>
-        <p><strong>Birth Year:</strong> ${charactersInfo[6]}</p>
-        <p><strong>Gender:</strong> ${charactersInfo[7]}</p>
-        <p><strong>Home World:</strong> ${charactersInfo[8]}</p>
-        <p><strong>Species:</strong> ${charactersInfo[9]}</p>
-    `;
+function displayElementInformation(fromCategory, elementInfo, targetListElement) {
 
     // Create a div element for the info box
     var infoBox = document.createElement('div');
     infoBox.classList.add('info-box');
-    infoBox.dataset.characters = elementInfo.name;
     
-    infoBox.innerHTML = "TEMP INNER";//formattedInfo; // Set the HTML content of the info box to the formatted character information
+    infoBox.innerHTML = formatElementInformationForDisplay(fromCategory, elementInfo); // Set the HTML content of the info box to the formatted character information
 
     //Insert the info box after the target element
     targetElement.insertAdjacentElement('afterend', infoBox);
+}
+
+function formatElementInformationForDisplay(fromCategory, info){
+     let formattedInfo = "ERR: !!NO FORMAT FOUND!!"
+
+    switch(fromCategory) {
+      case "starships":
+        formattedInfo = `
+            <p><strong>Model:</strong> ${info[1]}</p>
+            <p><strong>Manufacturer:</strong> ${info[2]}</p>
+            <p><strong>Cost:</strong> ${info[3]}</p>
+            <p><strong>Length:</strong> ${info[4]}</p>
+            <p><strong>Maximum Atmosphering Speed:</strong> ${info[5]}</p>
+            <p><strong>Crew:</strong> ${info[6]}</p>
+            <p><strong>Passengers:</strong> ${info[7]}</p>
+            <p><strong>Cargo Capacity:</strong> ${info[8]}</p>
+            <p><strong>Consumables:</strong> ${info[9]}</p>
+            <p><strong>Hyperdriving Rating:</strong> ${info[10]}</p>
+            <p><strong>mglt:</strong> ${info[11]}</p>
+            <p><strong>Starship Class:</strong> ${info[12]}</p>
+        `;
+        break;
+
+      case "species":
+        formattedInfo = `
+            <p><strong>Classification:</strong> ${info[1]}</p>
+            <p><strong>Designation:</strong> ${info[2]}</p>
+            <p><strong>Average Height:</strong> ${info[3]}</p>
+            <p><strong>Skin Color:</strong> ${info[4]}</p>
+            <p><strong>Hair Color:</strong> ${info[5]}</p>
+            <p><strong>Eye Color:</strong> ${info[6]}</p>
+            <p><strong>Lifespan:</strong> ${info[7]}</p>
+            <p><strong>Language:</strong> ${info[8]}</p>
+            <p><strong>Home World:</strong> ${info[9]}</p>
+        `;
+        break;
+
+      case "planets":
+        formattedInfo = "FORMAT MISSING FOR PLANETS!! REPLACE IN CATEGORY_SEARCH_PAGE.JS"
+        break;
+
+      case "vehicles":
+        formattedInfo = `
+            <p><strong>Name:</strong> ${info[0]}</p>
+            <p><strong>Model:</strong> ${info[1]}</p>
+            <p><strong>Manufacturer:</strong> ${info[2]}</p>
+            <p><strong>Cost (credits):</strong> ${info[3]}</p>
+            <p><strong>Length (meters):</strong> ${info[4]}</p>
+            <p><strong>Max Atmosphering Speed (km/h):</strong> ${info[5]}</p>
+            <p><strong>Crew:</strong> ${info[6]}</p>
+            <p><strong>Passengers:</strong> ${info[7]}</p>
+            <p><strong>Cargo Capacity (kg):</strong> ${info[8]}</p>
+            <p><strong>Consumables:</strong> ${info[9]}</p>
+            <p><strong>Class:</strong> ${info[10]}</p>
+        `;
+        break;
+
+      case "characters":
+        formattedInfo = `
+            <p><strong>Name:</strong> ${info[0]}</p>
+            <p><strong>Height:</strong> ${info[1]}</p>
+            <p><strong>Mass:</strong> ${info[2]}</p>
+            <p><strong>Skin Color:</strong> ${info[3]}</p>
+            <p><strong>Hair Color:</strong> ${info[4]}</p>
+            <p><strong>Eye Color:</strong> ${info[5]}</p>
+            <p><strong>Birth Year:</strong> ${info[6]}</p>
+            <p><strong>Gender:</strong> ${info[7]}</p>
+            <p><strong>Home World:</strong> ${info[8]}</p>
+            <p><strong>Species:</strong> ${info[9]}</p>
+        `;
+        break;
+
+      default:
+        console.log("ERROR: NO ELEMENT FORMAT FOUND FOR THIS CATEGORY!")
+    }
+
+    return formattedInfo;
 }
