@@ -72,12 +72,11 @@ def element_info():
         print("ELEMENT BEING")
         print(element)
         print("QUERY BEING")
-        print("SELECT * FROM " + category + " WHERE name = " + element)
 
         # Query the database
         conn = connect_to_db()
         cursor = conn.cursor()
-        cursor.execute("SELECT * FROM " + category + " WHERE name = " + element)
+        cursor.execute("SELECT * FROM " + category + " WHERE name = %s", (element))
         info = cursor.fetchone()
         cursor.close()
         conn.close()
