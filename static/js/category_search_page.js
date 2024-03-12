@@ -1,19 +1,25 @@
+
 //VARIABLES CREATED
 //var category
 
 var searchInput = document.getElementById('search');
 var elementsList = document.getElementById('search-list'); // Gets list element
+var sortCriteriaSelector = document.getElementById('sort-criteria');
 
 // Wait until DOM content loaded
 document.addEventListener('DOMContentLoaded', function() {
-    buildCategoryElementList(category, elementsList); // Generates list of category elements
 
-    addEventListenersToElementList(category, elementsList); // adds event listeners for clicking on elements
-    
-    loadCriteria(); // loads filter criteria into dropdowns
-    
+    buildCategoryElementList(category, elementsList); // Generates list of category elements
+    addEventListenersToElementList(category, elementsList); // Adds event listeners for clicking on elements
+    loadCriteria(); // Loads filter criteria into dropdowns
     searchInput.addEventListener('input', function() {
-        search(searchInput,category,elementsList);
+        search(searchInput, category, elementsList);
+    });
+
+    // Sort criteria selector event listener
+    sortCriteriaSelector.addEventListener('change', function() {
+        var selectedSortCriteria = sortCriteriaSelector.value;
+        buildCategoryElementList(category, elementsList, selectedSortCriteria);
     });
 });
 
@@ -22,28 +28,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
- //fetches names of all elements in a category (e.g. all species, all characters, etc.)
-//then adds these names to the display as list elements
-function buildCategoryElementList(fetchingFromCategory,elementsList) {
 
+//fetches names of all elements in a category (e.g. all species, all characters, etc.)
+//then adds these names to the display as list elements
+// Adds a sort parameter to the function.
+function buildCategoryElementList(fetchingFromCategory, elementsList, sortCriteria = 'name', sortDirection = 'ASC') {
     fetch('/fetch-category-element-names', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            fetch_from_category : fetchingFromCategory
+            fetch_from_category: fetchingFromCategory,
+            sort_by: sortCriteria,
+            sort_direction: sortDirection // Include sorting parameters
         })
     })
     .then(response => response.json())
     .then(data => {
-        // Call function to display information
-        buildCategoryElementListHTML(data,elementsList);
+        // Clears the current list and rebuilds it with sorted data
+        elementsList.innerHTML = ''; // Clear current list elements before adding new ones
+        buildCategoryElementListHTML(data, elementsList);
     })
     .catch(error => {
         console.error('Error:', error);
     });
-
 }
 
 //adds list elements to the page based on what's returned by the sql query
@@ -149,12 +158,12 @@ function formatElementInformationForDisplay(fromCategory, info){
         formattedInfo = `
             <p><strong>Model:</strong> ${info[1]}</p>
             <p><strong>Manufacturer:</strong> ${info[2]}</p>
-            <p><strong>Cost:</strong> ${info[3]}</p>
-            <p><strong>Length:</strong> ${info[4]}</p>
-            <p><strong>Maximum Atmosphering Speed:</strong> ${info[5]}</p>
+            <p><strong>Cost (credits):</strong> ${info[3]}</p>
+            <p><strong>Length (meters):</strong> ${info[4]}</p>
+            <p><strong>Maximum Atmosphering Speed (km/h):</strong> ${info[5]}</p>
             <p><strong>Crew:</strong> ${info[6]}</p>
             <p><strong>Passengers:</strong> ${info[7]}</p>
-            <p><strong>Cargo Capacity:</strong> ${info[8]}</p>
+            <p><strong>Cargo Capacity (kilograms):</strong> ${info[8]}</p>
             <p><strong>Consumables:</strong> ${info[9]}</p>
             <p><strong>Hyperdriving Rating:</strong> ${info[10]}</p>
             <p><strong>mglt:</strong> ${info[11]}</p>
@@ -166,11 +175,11 @@ function formatElementInformationForDisplay(fromCategory, info){
         formattedInfo = `
             <p><strong>Classification:</strong> ${info[1]}</p>
             <p><strong>Designation:</strong> ${info[2]}</p>
-            <p><strong>Average Height:</strong> ${info[3]}</p>
+            <p><strong>Average Height (centimeters):</strong> ${info[3]}</p>
             <p><strong>Skin Color:</strong> ${info[4]}</p>
             <p><strong>Hair Color:</strong> ${info[5]}</p>
             <p><strong>Eye Color:</strong> ${info[6]}</p>
-            <p><strong>Lifespan:</strong> ${info[7]}</p>
+            <p><strong>Lifespan (standard years):</strong> ${info[7]}</p>
             <p><strong>Language:</strong> ${info[8]}</p>
             <p><strong>Home World:</strong> ${info[9]}</p>
         `;
@@ -209,8 +218,8 @@ function formatElementInformationForDisplay(fromCategory, info){
       case "characters":
         formattedInfo = `
             <p><strong>Name:</strong> ${info[0]}</p>
-            <p><strong>Height:</strong> ${info[1]}</p>
-            <p><strong>Mass:</strong> ${info[2]}</p>
+            <p><strong>Height (cm):</strong> ${info[1]}</p>
+            <p><strong>Mass (kg):</strong> ${info[2]}</p>
             <p><strong>Skin Color:</strong> ${info[3]}</p>
             <p><strong>Hair Color:</strong> ${info[4]}</p>
             <p><strong>Eye Color:</strong> ${info[5]}</p>
