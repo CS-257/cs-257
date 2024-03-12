@@ -26,12 +26,14 @@
     <main>
         <div class="container">
             <input type="text" id="search" placeholder="Search...">
-	        
+            
             <br>
             <br>
 
+            <label for="criteria_filter_selector">Filter Criteria:</label>
             <select onchange="filterCriteriaSelected();" name="Criteria" id="criteria_filter_selector">
                 <option selected disabled value> -- Select a Criteria -- </option>
+                <!-- filled options -->
             </select>
 
             <br>
@@ -39,21 +41,19 @@
             <div id="criteria_filter_options">
                 <div id="criteria_filter_options_real" class="criteria_filter_options" style="display: none;">
                     <select id="criteria_filter_options_dropdown_real">
-                      <option value="filter_real_greaterThan">Greater Than</option>
-                      <option value="filter_real_lessThan">Less Than</option>
-                      <option value="filter_real_is">Is</option>
+                        <option value="filter_real_greaterThan">Greater Than</option>
+                        <option value="filter_real_lessThan">Less Than</option>
+                        <option value="filter_real_is">Is</option>
                     </select>
-
                     <input type="number" id="criteria_filter_options_entry_real">
                 </div>
 
                 <div id="criteria_filter_options_text" class="criteria_filter_options" style="display: none;">
                     <select id="criteria_filter_options_dropdown_text">
-                      <option value="filter_text_contains">Contains</option>
-                      <option value="filter_text_startsWith">Starts With</option>
-                      <option value="filter_text_endsWith">Ends With</option>
+                        <option value="filter_text_contains">Contains</option>
+                        <option value="filter_text_startsWith">Starts With</option>
+                        <option value="filter_text_endsWith">Ends With</option>
                     </select>
-
                     <input type="text" id="criteria_filter_options_entry_text">
                 </div>
             </div>
@@ -64,6 +64,17 @@
 
             <br>
             <br>
+            <!-- same criteria as the filtering system -->
+            <select id="sort-criteria">
+                <option value="">Select Sort Criteria</option>
+                {% for option in data.criteriaOptions %}
+                <option value="{{ option }}">{{ option.replace('_', ' ') | capitalize }}</option>
+                {% endfor %}
+            </select>
+            
+
+            <br>
+            <br>
 
             <button type="button" onclick="location.reload();">Clear</button>
 
@@ -71,14 +82,10 @@
 
             <div id="criteria_filters"></div>
 
-            <br>
-            <br>
-
-            <div id="dropdown-container"></div>
-                <ul id="search-list">
-                    <!-- List of elements -->
-                </ul>
-            </div>
+            <ul id="search-list">
+                <!-- List of elements -->
+            </ul>
+        </div>
     </main>
 
     <script>
