@@ -17,9 +17,13 @@ header {
     color: #fff;
 }
 
-header .container {
-    font-size: 30px;
+
+.textstyle {
+    max-width: 1050px;
+    margin: 0 auto;
+    text-align: center; 
 }
+
 
 .search {
     border-radius: 30px;
